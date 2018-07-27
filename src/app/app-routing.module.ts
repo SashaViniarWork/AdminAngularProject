@@ -1,9 +1,11 @@
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthModule } from './auth/auth.module';
 import { CrudPageModule } from './crud-page/crud-page.module';
 import { CrudUserModule } from './crud-user/crud-user.module';
 import {FinOperatingModule} from './fin-operating/fin-operating.module';
+
 
 const routes: Routes = [
 
@@ -30,4 +32,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
