@@ -5,10 +5,15 @@ import { AuthModule } from './auth/auth.module';
 import { CrudPageModule } from './crud-page/crud-page.module';
 import { CrudUserModule } from './crud-user/crud-user.module';
 import {FinOperatingModule} from './fin-operating/fin-operating.module';
+import {ErrorPageComponent} from './shared/error-page/error-page.component';
 
 
 const routes: Routes = [
-
+  {
+    path: '',
+    redirectTo: 'crud-user',
+    pathMatch: 'full'
+  },
   {
     path: 'author',
     loadChildren: 'app/auth/auth.module#AuthModule'
@@ -23,7 +28,11 @@ const routes: Routes = [
   },
   {
     path: 'fin-operation',
-    loadChildren: 'app/fin-operating/fin-operating#FinOperatingModule'
+    loadChildren: 'app/fin-operating/fin-operating.module#FinOperatingModule'
+  },
+  {
+    path: '**',
+    component: ErrorPageComponent
   }
 
 ];

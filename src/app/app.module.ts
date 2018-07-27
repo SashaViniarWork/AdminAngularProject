@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
