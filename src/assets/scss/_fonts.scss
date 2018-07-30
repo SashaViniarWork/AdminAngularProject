@@ -1,0 +1,24 @@
+//$fonts: (
+//  'Aver': (folder: 'aver', fileName: 'aver', weight: normal, style: 'normal')
+//);
+//
+//@each $name in map-keys($fonts) {
+//  $item: map_get($fonts, $name);
+//  $folder: map-get($item, folder);
+//  $family: map-get($item, fileName);
+//  $weight: map-get($item, weight);
+//  $style: map-get($item, style);
+//
+//  @include font-face(
+//    "#{$name}",
+//    font-files(
+//      "#{$folder}/#{$family}.woff", woff,
+//      "#{$folder}/#{$family}.woff2", woff2,
+//      "#{$folder}/#{$family}.ttf", ttf,
+//      "#{$folder}/#{$family}.svg", svg
+//    ),
+//    "#{$folder}/#{$family}.eot",
+//    #{$weight},
+//    #{$style}
+//  );
+//}

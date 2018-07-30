@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {ApiService} from '../api.service';
 import {Observable} from 'rxjs/Observable';
 
+
 @Injectable()
 export class CrudUserService {
 
