@@ -7,6 +7,7 @@ import { UserMainPageComponent } from './user-main-page/user-main-page.component
 import { UserEditPageComponent } from './user-edit-page/user-edit-page.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import {CrudUserService} from '../core/services/crud-user.service';
+import {ApiService} from '../core/api.service';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {CrudUserService} from '../core/services/crud-user.service';
     AddUserComponent
   ],
   providers: [
-    CrudUserService
+    CrudUserService,
+    ApiService
   ]
 })
 export class CrudUserModule { }
