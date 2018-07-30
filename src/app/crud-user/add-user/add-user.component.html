@@ -2,23 +2,43 @@
   <div class="formAddUser">
     <h2>Add New User</h2>
     <div class="form-row row">
-      <div class="form-group col-md-4">
-        <label>Person</label>
-        <input type="name" class="form-control" placeholder="Person">
+      <div class="form-group col-md-6">
+        <label>Full name</label>
+        <input type="text" class="form-control" placeholder="Full Name">
       </div>
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-6">
+        <label>E-mail</label>
+        <input type="email" class="form-control" placeholder="E-mail">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Phone number</label>
+        <input type="number" class="form-control" placeholder="Phone number">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Birthday</label>
+        <input type="text" class="form-control" placeholder="Birthday">
+      </div>
+      <div class="form-group col-md-6">
         <label>Role</label>
-        <input type="role" class="form-control"  placeholder="Role">
+        <select  class="form-control">
+          <option selected>Choose...</option>
+          <option>...</option>
+        </select>
       </div>
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-6">
+        <label>Position</label>
+        <input type="text" class="form-control" placeholder="Position">
+      </div>
+      <div class="form-group col-md-6">
         <label>Password</label>
         <input type="password" class="form-control" placeholder="Password">
       </div>
+      <div class="form-group col-md-6">
+        <label>Try again your password</label>
+        <input type="password" class="form-control" placeholder="Password">
+      </div>
     </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">Additional information</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
+
     <button type="button" class="btn btn-light">Save</button>
   </div>
 </div>
