@@ -5,9 +5,6 @@ import {Router} from '@angular/router';
 @Injectable()
 export class CrudUserService {
 
-  constructor(private http: HttpClient,
-              private  router: Router) {
-
-  }
+  constructor(private http: HttpClient) { }
 
 }
