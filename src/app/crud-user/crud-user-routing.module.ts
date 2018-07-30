@@ -15,13 +15,14 @@ const routes: Routes = [
     component: UserEditPageComponent
   },
   {
-    path: 'user-main-page',
-    component: UserMainPageComponent
-  },
-  {
     path: 'add-user',
     component: AddUserComponent
+  },
+  {
+    path: 'user-main-page',
+    component: UserMainPageComponent
   }
+
 ];
 
 @NgModule({
