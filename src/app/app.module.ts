@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { CrudUserService } from './core/services/crud-user.service';
+import { ApiService } from './core/api.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CrudUserService } from './core/services/crud-user.service';
     HttpClientModule
   ],
   providers: [
-    CrudUserService
+    CrudUserService,
+    ApiService
   ],
   bootstrap: [AppComponent]
 })

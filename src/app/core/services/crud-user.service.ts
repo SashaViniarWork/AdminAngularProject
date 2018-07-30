@@ -7,7 +7,7 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class CrudUserService {
 
-  public url = ''
+  public url = '';
 
   constructor(private http: HttpClient, private api: ApiService) { }
 
