@@ -1,0 +1,51 @@
+.header-edit, .content-edit {
+ margin-bottom: 40px;
+  h2 {
+    position: relative;
+    padding-bottom: 20px;
+    font-size: 25px;
+    margin-bottom: 30px;
+
+    &::after{
+      content: '';
+      position: absolute;
+      display: block;
+      z-index: 10;
+      top: auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-image: linear-gradient(to right, rgba(73, 91, 108, 0.7), rgba(73, 91, 108, 0));
+    }
+
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+    font-size: 16px;
+    padding: .6em 1em;
+    border: 1px solid #d5dfe8;
+    &:focus{
+      outline: none;
+      box-shadow: none;
+    }
+  }
+}
+
+.save-btn{
+  text-align: right;
+  input {
+    background: #495b6c;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #f9f9f9;
+    padding: 10px 40px;
+    border: none;
+    cursor: pointer;
+  }
+}
