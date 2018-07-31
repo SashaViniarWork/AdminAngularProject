@@ -5,6 +5,11 @@ import {MainPageComponent} from './main-page/main-page.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'main-page',
+    pathMatch: 'full'
+  },
+  {
     path: 'edit-page',
     component: EditPageComponent
   },
