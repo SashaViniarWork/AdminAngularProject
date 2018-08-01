@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { CrudUserService } from './core/services/crud-user.service';
 import { ApiService } from './core/api.service';
+import {HeaderComponent} from './shared/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ErrorPageComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
