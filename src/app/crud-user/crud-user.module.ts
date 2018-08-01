@@ -8,12 +8,15 @@ import { UserEditPageComponent } from './user-edit-page/user-edit-page.component
 import { AddUserComponent } from './add-user/add-user.component';
 import {CrudUserService} from '../core/services/crud-user.service';
 import {ApiService} from '../core/api.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     CrudUserRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     UserMainPageComponent,

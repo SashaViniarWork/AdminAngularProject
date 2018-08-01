@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { CrudUserService } from './core/services/crud-user.service';
 import { ApiService } from './core/api.service';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ApiService } from './core/api.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     CrudUserService,
