@@ -13,9 +13,9 @@
     </div>
   </div>
 
-  <div class="container navigate-panel">
+  <div class="container navigate-panel ">
     <div class="row">
-      <div class="col-lg-4 logo-block">
+      <div class="col-lg-4 col-sm-10 col-10 logo-block">
         <div class="container-fluid full-h">
           <div class="row full-h">
             <div class="col-2 logo-img">
@@ -27,13 +27,18 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-8 navigate-bar">
+      <div class="col-lg-7 navigate-bar {{closeStyle}}" id="navbarNav">
         <ul>
           <li><a href="">Home</a></li>
           <li><a href="">Services</a></li>
           <li><a href="">Company</a></li>
           <li><a href="">Contact Us</a></li>
         </ul>
+      </div>
+      <div class="col-2 burger-btn">
+        <button class="" type="button" (click)="onBurgerClick()">
+          <i class="fas fa-align-justify"></i>
+        </button>
       </div>
     </div>
   </div>
