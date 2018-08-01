@@ -1,3 +1,46 @@
-<p>
-  main-page works!
-</p>
+<div class="row crud-main-page">
+  <div class="col-lg-6">
+    <div class="row block-padding">
+      <div class="add-menu-search-h col-lg-12">
+        <h2>Search</h2>
+      </div>
+      <div class="col-lg-12 add-menu-search-i">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Enter what you want to find" class="form-control">
+      </div>
+      <div class="col-lg-12 add-new-page-h">
+        <h2>Add menu Item</h2>
+      </div>
+      <div class="col-lg-12 add-new-page-i">
+        <p>Label</p>
+        <input type="text">
+        <p>Parent menu</p>
+        <select name="prent-menu-select" id="prent-menu-select"></select>
+        <p>URL</p>
+        <input type="text">
+      </div>
+      <div class="col-lg-12">
+        <input type="checkbox" name="active" id="active-page">
+        <label for="active-page">Active</label>
+      </div>
+      <input type="button" value="Save" class="add-new-page-save-btn">
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="row block-padding">
+      <div class="col-lg-12 menu-list-h">
+        <h2>Menu List</h2>
+      </div>
+      <div class="menu-list-ul">
+        <ul>
+          <li>SERVICES <i class="edit fa fa-pencil-alt"></i> <i class="delete fa fa-times"></i></li>
+          <li>COMPANY</li>
+          <li>TEAM</li>
+          <li>PROJECTS</li>
+          <li>CONTACT US</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
