@@ -1,0 +1,148 @@
+.sosial {
+  background-color: white;
+}
+.sosial-media {
+  text-align: right;
+  justify-content: center;
+  ul {
+    list-style: none;
+    margin: 5px 0px;
+      li{
+        margin: 0px 5px;
+        display: inline-block;
+        a {
+          text-decoration: none;
+          font-size: 14px;
+          transition: all 0.3s;
+          color: #4f5862;
+          &.ico-facebook:hover{
+            color: #4267b2;
+          }
+          &.ico-twitter:hover {
+            color: #1da1f2;
+          }
+
+          &.ico-linkedin:hover {
+            color: #0077b5;
+          }
+
+          &.ico-youtube:hover {
+            color: #ce201f;
+          }
+
+          &.ico-instagram:hover {
+            color: #a5279a;
+          }
+        }
+      }
+  }
+}
+
+header{
+  background-color: rgba(247, 147, 30, 0.95);
+}
+
+.logo-block {
+  padding: 0;
+}
+
+.logo-img {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  img {
+  }
+}
+
+.logo-text {
+  padding: 10px 5px;
+  color: #fff;
+  font-size: 25px;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0;
+  }
+}
+
+.navigate-bar{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  ul {
+    height: 100%;
+    margin: 0;
+    list-style: none;
+    li{
+      display: inline-block;
+      font-size: 20px;
+      transition: all 0.3s;
+      a {
+        color: white;
+        text-decoration: none;
+        padding: 0px 20px;
+        line-height: 4;
+      }
+      &:hover{
+        background-color: #ffffff;
+        a {
+          color: rgba(247, 147, 30, 0.95);
+        }
+      }
+    }
+  }
+}
+
+.burger-btn {
+  display: none;
+  align-items: center;
+  button {
+    height: 50px;
+    width: 50px;
+    background: none;
+    border: none;
+    border-radius: 15px;
+    font-size: 30px;
+    color: #ffffff;
+    outline: none;
+    &:active{
+      outline: none;
+      background-color:rgba(214, 127, 25, 0.95);
+    }
+  }
+}
+
+.full-h {
+  height: 100%;
+}
+
+
+
+@media (max-width: 991px) {
+  .navigate-bar {
+    display: none;
+  }
+
+  .burger-btn {
+    display: flex;
+  }
+
+  .navigate-mobile{
+    display: block!important;
+    position: fixed;
+    height: 80%;
+    width: 100% !important;
+    top: 109px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.35);
+    ul{
+      padding: 0;
+      li{
+        display: block !important;
+      }
+    }
+
+
+  }
+}

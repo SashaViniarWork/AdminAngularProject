@@ -1,3 +1,46 @@
-<p>
-  header works!
-</p>
+<header>
+  <div class="container-fluid sosial">
+    <div class="row sosial-media-row">
+      <div class="col-lg-12 sosial-media">
+        <ul>
+          <li><a href="" class="ico-facebook"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="" class="ico-twitter"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="" class="ico-linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+          <li><a href="" class="ico-youtube"><i class="fab fa-youtube"></i></a></li>
+          <li><a href="" class="ico-instagram"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container navigate-panel ">
+    <div class="row">
+      <div class="col-lg-4 col-sm-10 col-10 logo-block">
+        <div class="container-fluid full-h">
+          <div class="row full-h">
+            <div class="col-2 logo-img">
+              <img src="../../../assets/images/favicon.ico" alt="fovicon">
+            </div>
+            <div class="col-10 logo-text">
+              <p>OnPeraTechnologies</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 navigate-bar {{closeStyle}}" id="navbarNav">
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">Services</a></li>
+          <li><a href="">Company</a></li>
+          <li><a href="">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-2 burger-btn">
+        <button class="" type="button" (click)="onBurgerClick()">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</header>
