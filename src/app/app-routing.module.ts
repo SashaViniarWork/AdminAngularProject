@@ -5,6 +5,7 @@ import { CrudPageModule } from './crud-page/crud-page.module';
 import { CrudUserModule } from './crud-user/crud-user.module';
 import {FinOperatingModule} from './fin-operating/fin-operating.module';
 import {ErrorPageComponent} from './shared/error-page/error-page.component';
+import { AuthGuardService } from './core/services/auth-guard.service';
 
 
 const routes: Routes = [
