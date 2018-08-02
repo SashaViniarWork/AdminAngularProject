@@ -6,6 +6,7 @@ import {AddUserComponent} from './add-user/add-user.component';
 import { AuthGuardService } from '../core/services/auth-guard.service';
 
 const routes: Routes = [
+  
   {
     path: '',
     redirectTo: 'user-main-page',
