@@ -5,6 +5,7 @@ import {UserMainPageComponent} from './user-main-page/user-main-page.component';
 import {AddUserComponent} from './add-user/add-user.component';
 
 const routes: Routes = [
+  
   {
     path: '',
     redirectTo: 'user-main-page',
