@@ -67,18 +67,6 @@ export class AddUserComponent implements OnInit {
   }
 
 
-// addForm = new FormGroup({
-  //   fullName: new FormControl(''),
-  //   email: new FormControl(''),
-  //   phoneNumber: new FormControl(''),
-  //   birthday: new FormControl(''),
-  //   role: new FormControl(''),
-  //   position: new FormControl(''),
-  //   password1: new FormControl(''),
-  //   password2: new FormControl('')
-  //
-  // });
-
 
 
 
