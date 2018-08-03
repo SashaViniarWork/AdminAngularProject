@@ -24,6 +24,13 @@ export class AuthService {
     return this.api.post(this.urls.login, userData);
   }
 
+  registrate (userData) {
+    return this.api.post(this.urls.registration, userData)
+  }
 
+  loguot() {
+    localStorage.clear();
+    this.router.navigate(['/auth/login']);
+  }
 
 }

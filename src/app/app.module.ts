@@ -9,9 +9,9 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { CrudUserService } from './core/services/crud-user.service';
 import { ApiService } from './core/api.service';
 import {HeaderComponent} from './shared/header/header.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import {AuthGuardService} from "./core/services/auth-guard.service";
-import {AuthService} from "./core/services/auth.service";
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AuthService} from './core/services/auth.service';
+import {AuthModule} from './auth/auth.module';
 
 
 @NgModule({
@@ -21,16 +21,17 @@ import {AuthService} from "./core/services/auth.service";
     HeaderComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule ,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    AuthModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     CrudUserService,
-    ApiService/*,
-    AuthGuardService,
-    AuthService*/
+    ApiService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
