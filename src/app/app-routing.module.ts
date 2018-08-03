@@ -15,20 +15,24 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'author',
-    loadChildren: 'app/auth/auth.module#AuthModule'
+    path: 'auth',
+    loadChildren: 'app/auth/auth.module#AuthModule',
+    //canActivate: [AuthGuardService]
   },
   {
     path: 'crud-page',
-    loadChildren: 'app/crud-page/crud-page.module#CrudPageModule'
+    loadChildren: 'app/crud-page/crud-page.module#CrudPageModule',
+    canActivate: [AuthGuardService]
   },
   {
     path: 'crud-user',
-    loadChildren: 'app/crud-user/crud-user.module#CrudUserModule'
+    loadChildren: 'app/crud-user/crud-user.module#CrudUserModule',
+    canActivate: [AuthGuardService]
   },
   {
     path: 'fin-operation',
-    loadChildren: 'app/fin-operating/fin-operating.module#FinOperatingModule'
+    loadChildren: 'app/fin-operating/fin-operating.module#FinOperatingModule',
+    canActivate: [AuthGuardService]
   },
   {
     path: '**',

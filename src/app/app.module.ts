@@ -10,6 +10,8 @@ import { CrudUserService } from './core/services/crud-user.service';
 import { ApiService } from './core/api.service';
 import {HeaderComponent} from './shared/header/header.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {AuthGuardService} from "./core/services/auth-guard.service";
+import {AuthService} from "./core/services/auth.service";
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import {ReactiveFormsModule} from '@angular/forms';
   ],
   providers: [
     CrudUserService,
-    ApiService
+    ApiService/*,
+    AuthGuardService,
+    AuthService*/
   ],
   bootstrap: [AppComponent]
 })
