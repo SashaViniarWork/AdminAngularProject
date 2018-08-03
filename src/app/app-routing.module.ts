@@ -6,6 +6,7 @@ import { CrudUserModule } from './crud-user/crud-user.module';
 import {FinOperatingModule} from './fin-operating/fin-operating.module';
 import {ErrorPageComponent} from './shared/error-page/error-page.component';
 import { AuthGuardService } from './core/services/auth-guard.service';
+import {AuthComponent} from './auth/auth.component';
 
 
 const routes: Routes = [
@@ -16,8 +17,8 @@ const routes: Routes = [
   },
   {
     path: 'auth',
+    component: AuthComponent,
     loadChildren: 'app/auth/auth.module#AuthModule',
-    //canActivate: [AuthGuardService]
   },
   {
     path: 'crud-page',
