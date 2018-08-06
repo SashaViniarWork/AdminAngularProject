@@ -1,3 +1,10 @@
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 101;
+}
 .sosial {
   background-color: white;
 }
@@ -135,6 +142,7 @@ header{
     width: 100% !important;
     top: 109px;
     left: 0px;
+    z-index: 100;
     background-color: rgba(0, 0, 0, 0.35);
     ul{
       padding: 0;
