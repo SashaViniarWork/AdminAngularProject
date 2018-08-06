@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   registrate (userData) {
-    return this.api.post(this.urls.registration, userData)
+    return this.api.post(this.urls.registration, userData);
   }
 
   loguot() {

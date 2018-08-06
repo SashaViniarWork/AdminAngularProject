@@ -12,6 +12,7 @@ import {HeaderComponent} from './shared/header/header.component';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './core/services/auth.service';
 import {AuthModule} from './auth/auth.module';
+import {FooterComponent} from "./shared/footer/footer.component";
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {AuthModule} from './auth/auth.module';
     AppComponent,
     ErrorPageComponent,
     HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule ,
