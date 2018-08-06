@@ -1,0 +1,125 @@
+footer{
+  margin-top: 20px;
+  background-color: #495b6c;
+  color: white;
+
+  .footer-content {
+    padding: 30px 5px;
+  }
+
+  .footer-label{
+    font-size: 21px;
+    position: relative;
+    &::after{
+      content: '';
+      position: absolute;
+      display: block;
+      z-index: 10;
+      top: auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-image: linear-gradient(to right, rgba(243, 243, 243, 0.5), rgba(243, 243, 243, 0));
+    }
+  }
+
+
+  .footer-social {
+    padding: 0px 10px;
+    ul{
+      list-style: none;
+      padding: 0;
+      display: inline-flex;
+      li {
+        width: 35px;
+        height: 35px;
+        border-radius: 100%;
+        border: 1px white solid;
+        display: flex;
+        justify-content: center;
+        padding: .25em;
+        margin-right: 10px;
+        font-size: 16px;
+        transition: all 0.3s;
+        a {
+          color: white;
+          text-decoration: none;
+        }
+        &:hover {
+          background-color: white;
+          .ico-facebook{
+            color: #4267b2;
+          }
+          .ico-twitter {
+            color: #1da1f2;
+          }
+
+          .ico-linkedin {
+            color: #0077b5;
+          }
+
+          .ico-youtube {
+            color: #ce201f;
+          }
+
+          .ico-instagram {
+            color: #a5279a;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-info {
+    text-align: right;
+
+    .contact-info-h{
+      font-size: 21px;
+      position: relative;
+      &:after{
+        content: '';
+        position: absolute;
+        display: block;
+        z-index: 10;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-image: linear-gradient(to left, rgba(243, 243, 243, 0.5), rgba(243, 243, 243, 0));
+      }
+    }
+    ul {
+       list-style: none;
+      li {
+        margin: 20px 0;
+        font-size: 16px;
+        a {
+          text-decoration: none;
+          color: white;
+        }
+        i{
+          margin-left: 20px;
+        }
+
+      }
+    }
+  }
+
+  .footer-bottom{
+    background-color: white;
+    color: #4f5862;
+    display: flex;
+    padding: 10px 0;
+    font-size: 13px;
+    justify-content: center;
+    p {
+      margin: 0;
+    }
+    a {
+      text-decoration: none;
+      color: rgba(247, 147, 30, 0.95);;
+    }
+  }
+}
