@@ -9,10 +9,12 @@ export class HeaderComponent implements OnInit {
 
   public show = false;
   public closeStyle = '';
+  public menuValidation = false;
 
   constructor() { }
 
   ngOnInit() {
+    this.menuValid();
   }
 
   onBurgerClick() {
@@ -22,5 +24,15 @@ export class HeaderComponent implements OnInit {
     } else {
       this.closeStyle = '';
     }
+  }
+
+  menuValid() {
+    console.log(localStorage.getItem('token'));
+    if (localStorage.getItem('token')) {
+      this.menuValidation = true;
+    } else {
+      this.menuValidation = false;
+    }
+
   }
 }

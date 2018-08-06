@@ -8,13 +8,14 @@ import {environment} from '../../environments/environment';
 export class ApiService {
 
   public readonly apiUrl = environment.apiUrl;
+  public token = JSON.parse(localStorage.getItem('token'));
 
   constructor(private http: HttpClient) {
   }
 
   get(url, params?) {
     const Params = new HttpParams();
-    const token = JSON.parse(localStorage.getItem('auth'));
+    const token = this.token;
 
     const headers = new HttpHeaders().set('Authorization', 'JWT' + token.token);
     if (params) {
@@ -32,7 +33,7 @@ export class ApiService {
 
   post(url, data) {
     const payload = new FormData();
-    const token = JSON.parse(localStorage.getItem('auth'));
+    const token = this.token;
     if (token !== null) {
       Object.keys(data).map((key) => {
         if (Array.isArray(data[key])) {
@@ -59,7 +60,7 @@ export class ApiService {
 
   put(url, params?) {
     const Params = new HttpParams();
-    const token = JSON.parse(localStorage.getItem('auth'));
+    const token = this.token;
 
     const headers = new HttpHeaders().set('Authorization', 'JWT' + token.token);
     if (params) {
