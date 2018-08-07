@@ -28,7 +28,7 @@ const routes: Routes = [
   {
     path: 'crud-user',
     loadChildren: 'app/crud-user/crud-user.module#CrudUserModule',
-    canActivate: [AuthGuardService]
+    // canActivate: [AuthGuardService]
   },
   {
     path: 'fin-operation',
