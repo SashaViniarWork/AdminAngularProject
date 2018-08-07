@@ -50,7 +50,7 @@ header{
 }
 
 .logo-block {
-  padding: 0;
+  padding-left: 40px;
 }
 
 .logo-img {
@@ -127,6 +127,17 @@ header{
 
 
 @media (max-width: 991px) {
+  .logo-block {
+    padding-left: 10px;
+    p {
+      font-size: 20px;
+    }
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
   .navigate-bar {
     display: none;
   }
@@ -140,8 +151,8 @@ header{
     position: fixed;
     height: 80%;
     width: 100% !important;
-    top: 109px;
-    left: 0px;
+    top: 94px;
+    left: 0;
     z-index: 100;
     background-color: rgba(0, 0, 0, 0.35);
     ul{

@@ -13,10 +13,10 @@
     </div>
   </div>
 
-  <div class="container navigate-panel ">
+  <div class="container-fluid navigate-panel ">
     <div class="row">
-      <div class="col-lg-4 col-sm-10 col-10 logo-block">
-        <div class="container-fluid full-h">
+      <div class="col-lg-auto col-sm-10 col-10 logo-block">
+        <div class="container-fluid">
           <div class="row full-h">
             <div class="col-2 logo-img">
               <img src="../../../assets/images/favicon.ico" alt="fovicon">
@@ -27,17 +27,24 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-7 navigate-bar {{closeStyle}}" id="navbarNav">
-        <ul>
+      <div class="col ml-auto navigate-bar {{closeStyle}}" id="navbarNav" >
+        <ul *ngIf="!menuValidation">
           <li><a href="">Home</a></li>
           <li><a href="">Services</a></li>
           <li><a href="">Company</a></li>
           <li><a href="">Contact Us</a></li>
         </ul>
+        <ul *ngIf="menuValidation">
+          <li><a href="#">Code Editor</a></li>
+          <li><a href="#">Pages</a></li>
+          <li><a href="#">Users</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
       </div>
       <div class="col-2 burger-btn">
         <button class="" type="button" (click)="onBurgerClick()">
-          <i class="fas fa-bars"></i>
+          <i class="fas fa-bars" *ngIf="!show"></i>
+          <i class="fas fa-times" *ngIf="show"></i>
         </button>
       </div>
     </div>
