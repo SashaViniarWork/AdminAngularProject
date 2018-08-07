@@ -12,10 +12,10 @@ export class CrudUserService {
 
   constructor(private http: HttpClient, private api: ApiService) { }
 
-  registrateUser(user) {
-    this.api.post(this.url, user).subscribe( res => {
-    });
-  }
+  // registrateUser(user) {
+  //   this.api.post(this.url, user).subscribe( res => {
+  //   });
+  // }
 
   getUserList(req): Observable<any> {
    return this.api.get(this.url);

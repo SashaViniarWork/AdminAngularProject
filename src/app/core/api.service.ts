@@ -8,7 +8,7 @@ import {environment} from '../../environments/environment';
 export class ApiService {
 
   public readonly apiUrl = environment.apiUrl;
-  public token = JSON.parse(localStorage.getItem('token'));
+  public token = localStorage.getItem('token');
 
   constructor(private http: HttpClient) {
   }
@@ -17,7 +17,7 @@ export class ApiService {
     const Params = new HttpParams();
     const token = this.token;
 
-    const headers = new HttpHeaders().set('Authorization', 'JWT' + token.token);
+    const headers = new HttpHeaders().set('Authorization', 'JWT' + token);
     if (params) {
       Object.keys(params).map((key) => {
         Params.append(key, params[key]);
@@ -30,6 +30,9 @@ export class ApiService {
     };
     return this.http.get(this.apiUrl + url, options);
   }
+
+  // post(user, url) {
+  // }
 
   post(url, data) {
     const payload = new FormData();
@@ -45,7 +48,7 @@ export class ApiService {
         }
 
       });
-      const headers = new HttpHeaders().set('Authorization', 'JWT' + token.token);
+      const headers = new HttpHeaders().set('Authorization', 'JWT' + token);
       const options = {
         headers: headers,
       };
@@ -62,7 +65,7 @@ export class ApiService {
     const Params = new HttpParams();
     const token = this.token;
 
-    const headers = new HttpHeaders().set('Authorization', 'JWT' + token.token);
+    const headers = new HttpHeaders().set('Authorization', 'JWT' + token);
     if (params) {
       Object.keys(params).map((key) => {
         Params.append(key, params[key]);
