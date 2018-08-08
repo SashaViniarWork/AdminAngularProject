@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {AuthService} from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit {
   public closeStyle = '';
   public menuValidation = false;
 
-  constructor() { }
+  constructor( private auth: AuthService, private router: Router ) { }
 
   ngOnInit() {
     this.menuValid();
@@ -35,5 +36,10 @@ export class HeaderComponent implements OnInit {
       this.menuValidation = false;
     }
 
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/auth/login']);
   }
 }

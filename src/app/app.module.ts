@@ -13,6 +13,7 @@ import {AuthService} from './core/services/auth.service';
 import {AuthModule} from './auth/auth.module';
 import {FooterComponent} from './shared/footer/footer.component';
 import {TokenInterceptorService} from './core/services/token-interceptor.service';
+import {AuthGuardService} from './core/services/auth-guard.service';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {TokenInterceptorService} from './core/services/token-interceptor.service
     CrudUserService,
     ApiService,
     AuthService,
+    AuthGuardService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

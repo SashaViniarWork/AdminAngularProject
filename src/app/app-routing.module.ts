@@ -24,12 +24,12 @@ const routes: Routes = [
   {
     path: 'crud-page',
     loadChildren: 'app/crud-page/crud-page.module#CrudPageModule',
-    // canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'crud-user',
     loadChildren: 'app/crud-user/crud-user.module#CrudUserModule',
-    // canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'fin-operation',
