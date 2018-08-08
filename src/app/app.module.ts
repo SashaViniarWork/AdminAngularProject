@@ -1,18 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { CrudUserService } from './core/services/crud-user.service';
 import { ApiService } from './core/api.service';
 import {HeaderComponent} from './shared/header/header.component';
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './core/services/auth.service';
 import {AuthModule} from './auth/auth.module';
-import {FooterComponent} from "./shared/footer/footer.component";
+import {FooterComponent} from './shared/footer/footer.component';
+import {TokenInterceptorService} from './core/services/token-interceptor.service';
 
 
 @NgModule({
@@ -28,12 +28,19 @@ import {FooterComponent} from "./shared/footer/footer.component";
     HttpClientModule,
     AuthModule,
     ReactiveFormsModule,
+    HttpClientModule,
     FormsModule
   ],
+
   providers: [
     CrudUserService,
     ApiService,
-    AuthService
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })

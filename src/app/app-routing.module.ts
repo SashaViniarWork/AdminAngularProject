@@ -19,6 +19,7 @@ const routes: Routes = [
     path: 'auth',
     component: AuthComponent,
     loadChildren: 'app/auth/auth.module#AuthModule',
+    // canActivate: [AuthGuardService]
   },
   {
     path: 'crud-page',
