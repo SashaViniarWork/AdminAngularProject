@@ -31,9 +31,6 @@ export class ApiService {
     return this.http.get(this.apiUrl + url, options);
   }
 
-  // post(user, url) {
-  // }
-
   post(url, data) {
     const payload = new FormData();
     const token = this.token;
