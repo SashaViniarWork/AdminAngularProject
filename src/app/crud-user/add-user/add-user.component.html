@@ -1,51 +1,81 @@
-<form novalidate
-      [formGroup]="addForm"
-      (ngSubmit)="onSubmit()">
+<form [formGroup]="addForm"
+      (ngSubmit)="add(addForm.value)"
+>
   <div class="container">
-  <div class="formAddUser">
+
     <h2>Add New User</h2>
 
-   <div class="form-row row">
+    <div class="form-row row">
       <div class="form-group col-md-6">
-        <label>Full name</label>
+        <label>Full name*</label>
         <input type="text" class="form-control" formControlName="fullName" placeholder="Full Name" required>
+        <div *ngIf="addForm.controls['fullName'].errors  && !addForm.controls['fullName'].pristine">
+          <div *ngIf="!addForm.controls['fullName'].errors.required">Please add Full Name</div>
+        </div>
       </div>
       <div class="form-group col-md-6">
-        <label>E-mail</label>
+        <label>E-mail*</label>
         <input type="email" class="form-control" formControlName="email" placeholder="E-mail" required>
+        <div *ngIf="addForm.controls['email'].errors  && !addForm.controls['email'].pristine">
+          <div *ngIf="!addForm.controls['email'].errors.required">E-mail must look like example@gmail.com</div>
+        </div>
       </div>
       <div class="form-group col-md-6">
-        <label>Phone number</label>
+        <label>Phone number*</label>
         <input type="text" class="form-control" formControlName="phoneNumber" placeholder="Phone number" required>
+        <div *ngIf="addForm.controls['phoneNumber'].errors  && !addForm.controls['phoneNumber'].pristine">
+          <div *ngIf="!addForm.controls['phoneNumber'].errors.required">Please add phone number</div>
+        </div>
       </div>
       <div class="form-group col-md-6">
-        <label>Birthday</label>
-        <input type="text" class="form-control" formControlName="birthday" placeholder="Birthday">
+        <label>Birthday*</label>
+        <input type="text" class="form-control" formControlName="birthday" placeholder="Birthday" required>
+        <div *ngIf="addForm.controls['birthday'].errors  && !addForm.controls['birthday'].pristine">
+          <div *ngIf="!addForm.controls['birthday'].errors.required">Please add birthday</div>
+        </div>
       </div>
-      <div class="form-group col-md-6" >
-        <label>Role</label>
-        <select  class="form-control" formControlName="role" required>
-          <option selected>Choose...</option>
+      <div class="form-group col-md-6">
+        <label>Role*</label>
+        <select class="form-control" formControlName="role" required>
+          <option selected>Choose</option>
           <option>...</option>
         </select>
+        <div *ngIf="addForm.controls['role'].errors  && !addForm.controls['role'].pristine">
+          <div *ngIf="!addForm.controls['role'].errors.required">Please choose role</div>
+        </div>
       </div>
       <div class="form-group col-md-6">
-        <label>Position</label>
-        <input type="text" class="form-control" formControlName="position" placeholder="Position">
+        <label>Position*</label>
+        <input type="text" class="form-control" formControlName="position" placeholder="Position" required>
+        <div *ngIf="addForm.controls['position'].errors  && !addForm.controls['position'].pristine">
+          <div *ngIf="!addForm.controls['position'].errors.required">Please add position</div>
+        </div>
       </div>
       <div class="form-group col-md-6">
-        <label>Password</label>
-        <input type="password" class="form-control" formControlName="password1" placeholder="Password" required>
+        <label>Password*</label>
+        <input id="password" type="password" class="form-control" formControlName="password1" placeholder="Password" required>
+        <div *ngIf="addForm.controls['password1'].errors  && !addForm.controls['password1'].pristine">
+          <div *ngIf="!addForm.controls['password1'].errors.required">Please add password</div>
+          <div *ngIf="!addForm.controls['password1'].errors.minLength">Min length is 8 symbols</div>
+        </div>
       </div>
       <div class="form-group col-md-6">
-        <label>Try again your password</label>
+        <label>Try again your password*</label>
         <input type="password" class="form-control" formControlName="password2" placeholder="Password" required>
-      </div>
-     <button type="submit" class="btn btn-light">Save</button>
-    </div>
+        <div *ngIf="!addForm.controls['password2'].pristine">
+          <div *ngIf="addForm.controls['password1'].value !== addForm.controls['password2'].value"  class="truthPassword">Your password must be the same</div>
+        </div>
 
+        <div *ngIf="addForm.controls['password2'].errors  && !addForm.controls['password2'].pristine">
+          <div *ngIf="!addForm.controls['password2'].errors.required">Please add password</div>
+          <div *ngIf="!addForm.controls['password2'].errors.minLength">Min length is 8 symbols</div>
+
+        </div>
+      </div>
+      <button [disabled]="addForm.invalid" type="submit" class="btn btn-light">Save</button>
+    </div>
+      <label>* - fields must be filled</label>
 
   </div>
-</div>
 </form>
 
