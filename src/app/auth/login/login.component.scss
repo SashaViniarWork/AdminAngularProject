@@ -1,3 +1,18 @@
 .form-group{
   margin-top: 10px;
 }
+
+.email-inp {
+  &:active{
+    outline: none;
+  }
+}
+
+.email-inp.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+.password-inp.ng-invalid.ng-touched {
+  border-color: red;
+}
+
