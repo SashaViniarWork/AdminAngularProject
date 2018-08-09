@@ -26,6 +26,7 @@ export class AddUserComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       phoneNumber: [null, Validators.required],
       birthday: [null, Validators.required],
+
       position: [null, Validators.required],
       password1: [null, [Validators.required, Validators.minLength(8)]],
       password2: [null, [Validators.required, Validators.minLength(8)]]
@@ -38,6 +39,7 @@ export class AddUserComponent implements OnInit {
     let userInfo;
     if (this.addForm.valid) {
       if (this.addForm.value.password1 === this.addForm.value.password2) {
+
         userInfo = {
           name: this.addForm.value.name,
           surname: this.addForm.value.surname,
@@ -52,6 +54,7 @@ export class AddUserComponent implements OnInit {
         });
         console.log(userInfo);
          this.addForm.reset();
+
       } else {
         return alert('Your passwords must be equal');
       }
