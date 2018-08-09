@@ -8,7 +8,9 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class CrudUserService {
 
-  public url = '';
+  public url = {
+    registration: 'http://localhost:3000/api/register'
+  };
 
   constructor(private http: HttpClient, private api: ApiService) { }
 
@@ -17,7 +19,12 @@ export class CrudUserService {
   //   });
   // }
 
-  getUserList(req): Observable<any> {
+
+  addNewUser (userData) {
+    return this.http.post(this.url.registration, userData);
+  }
+
+  getUserList (req): Observable<any> {
    return this.api.get(this.url);
   }
 
