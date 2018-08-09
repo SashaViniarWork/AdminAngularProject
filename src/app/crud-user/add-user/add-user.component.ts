@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CrudUserService} from '../../core/services/crud-user.service';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 
 @Component({
@@ -10,61 +11,46 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class AddUserComponent implements OnInit {
 
+  public addForm: FormGroup;
 
-  addForm: FormGroup;
-  fullName: FormControl;
-  email: FormControl;
-  phoneNumber: FormControl;
-  birthday: FormControl;
-  role: FormControl;
-  position: FormControl;
-  password1: FormControl;
-  password2: FormControl;
+
   ngOnInit() {
-    this.createFormControls();
-    this.createForm();
-  }
-  constructor(private crudUserService: CrudUserService) {
-  }
-
-  createFormControls() {
-    this.fullName = new FormControl('', Validators.required);
-    this.email = new FormControl('', [
-      Validators.required,
-      Validators.pattern('[^ @]*@[^ @]*')
-    ]);
-    this.phoneNumber = new FormControl('', Validators.required);
-    this.birthday = new FormControl('');
-    this.role = new FormControl('', Validators.required);
-    this.position = new FormControl('');
-    this.password1 = new FormControl('', [
-      Validators.required,
-      Validators.minLength(8)
-    ]);
-    this.password2 = new FormControl('', Validators.required );
 
   }
 
-  createForm() {
-    this.addForm = new FormGroup({
+  constructor(private crudUserService: CrudUserService, private fb: FormBuilder) {
 
-      fullName: this.fullName,
-      email: this.email,
-      phoneNumber: this.phoneNumber,
-      birthday: this.birthday,
-      role: this.role,
-      position: this.position,
-      password1: this.password1,
-      password2: this.password2
-
+    this.addForm = fb.group({
+      fullName:[null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      phoneNumber: [null, Validators.required],
+      birthday: [null, Validators.required],
+      role: [null, Validators.required],
+      position: [null, Validators.required],
+      password1: [null, [Validators.required, Validators.minLength(8)]],
+      password2: [null, [Validators.required, Validators.minLength(8)]]
     });
+
   }
-  onSubmit() {
 
-      console.log(this.addForm.value);
 
+  add() {
+    let userInfo;
+    if (this.addForm.valid) {
+      if (this.addForm.value.password1 === this.addForm.value.password2) {
+        userInfo = this.addForm.value;
+        console.log(userInfo);
+        this.addForm.reset();
+        console.log(this.addForm.value);
+      } else {
+        return alert('Your passwords must be equal');
+      }
+
+    } else {
     }
+
   }
+}
 
 
 
