@@ -43,10 +43,11 @@ export class AddUserComponent implements OnInit {
         this.addForm.reset();
         console.log(this.addForm.value);
       } else {
-        return alert('Your passwords must be equal');
+        alert('Your passwords must be equal');
       }
 
     } else {
+      alert('Please fill your fields')
     }
 
   }
