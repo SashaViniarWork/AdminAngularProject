@@ -5,6 +5,8 @@ import { CrudPageRoutingModule } from './crud-page-routing.module';
 import { MainPageComponent } from './main-page/main-page.component';
 import { EditPageComponent } from './edit-page/edit-page.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AddNewPageComponent } from './add-new-page/add-new-page.component';
+import { ViewPageComponent } from './view-page/view-page.component';
 
 @NgModule({
   imports: [
@@ -14,6 +16,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FormsModule
 
   ],
-  declarations: [MainPageComponent, EditPageComponent]
+  declarations: [MainPageComponent, EditPageComponent, AddNewPageComponent, ViewPageComponent]
 })
 export class CrudPageModule { }

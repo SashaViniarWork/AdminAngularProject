@@ -52,7 +52,8 @@
       </div>
       <div class="form-group col-md-6">
         <label>Password*</label>
-        <input id="password" type="password" class="form-control" formControlName="password1" placeholder="Password" required>
+        <input id="password" type="password" class="form-control" formControlName="password1" placeholder="Password"
+               required>
         <div *ngIf="addForm.controls['password1'].errors  && !addForm.controls['password1'].pristine">
           <div *ngIf="!addForm.controls['password1'].errors.required">Please add password</div>
           <div *ngIf="!addForm.controls['password1'].errors.minLength">Min length is 8 symbols</div>
@@ -62,7 +63,9 @@
         <label>Try again your password*</label>
         <input type="password" class="form-control" formControlName="password2" placeholder="Password" required>
         <div *ngIf="!addForm.controls['password2'].pristine">
-          <div *ngIf="addForm.controls['password1'].value !== addForm.controls['password2'].value"  class="truthPassword">Your password must be the same</div>
+          <div *ngIf="addForm.controls['password1'].value !== addForm.controls['password2'].value"
+               class="truthPassword">Your password must be the same
+          </div>
         </div>
 
         <div *ngIf="addForm.controls['password2'].errors  && !addForm.controls['password2'].pristine">
@@ -73,7 +76,7 @@
       </div>
       <button [disabled]="addForm.invalid" type="submit" class="btn btn-light">Save</button>
     </div>
-      <label>* - fields must be filled</label>
+    <label>* - fields must be filled</label>
 
   </div>
 </form>
