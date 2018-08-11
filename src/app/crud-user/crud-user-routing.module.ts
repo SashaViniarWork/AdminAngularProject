@@ -8,20 +8,19 @@ import { AuthGuardService } from '../core/services/auth-guard.service';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'add-user',
+    redirectTo: 'user-main',
     pathMatch: 'full'
-
   },
   {
-    path: 'user-edit',
+    path: 'user-edit/:id',
     component: UserEditPageComponent
   },
   {
-    path: 'add-user',
+    path: 'user-add',
     component: AddUserComponent
   },
   {
-    path: 'user-main-page',
+    path: 'user-main',
     component: UserMainPageComponent
   }
 
