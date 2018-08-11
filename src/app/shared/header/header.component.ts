@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   public closeStyle = '';
   public menuValidation = false;
 
-  constructor( private auth: AuthService, private router: Router ) { }
+  constructor( public auth: AuthService, private router: Router ) { }
 
   ngOnInit() {
     this.menuValid();

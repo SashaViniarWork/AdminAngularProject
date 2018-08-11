@@ -21,11 +21,12 @@ export class AddUserComponent implements OnInit {
   constructor(private crudUserService: CrudUserService, private fb: FormBuilder) {
 
     this.addForm = fb.group({
-      fullName:[null, Validators.required],
+      name: [null, Validators.required],
+      surname: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
       phoneNumber: [null, Validators.required],
       birthday: [null, Validators.required],
-      role: [null, Validators.required],
+
       position: [null, Validators.required],
       password1: [null, [Validators.required, Validators.minLength(8)]],
       password2: [null, [Validators.required, Validators.minLength(8)]]
@@ -38,10 +39,22 @@ export class AddUserComponent implements OnInit {
     let userInfo;
     if (this.addForm.valid) {
       if (this.addForm.value.password1 === this.addForm.value.password2) {
-        userInfo = this.addForm.value;
+
+        userInfo = {
+          name: this.addForm.value.name,
+          surname: this.addForm.value.surname,
+          password: this.addForm.value.password1,
+          birthday: this.addForm.value.birthday,
+          position: this.addForm.value.position,
+          phone: this.addForm.value.phoneNumber,
+          email: this.addForm.value.email,
+        };
+        this.crudUserService.addNewUser(userInfo).subscribe( req => {
+
+        });
         console.log(userInfo);
-        this.addForm.reset();
-        console.log(this.addForm.value);
+         this.addForm.reset();
+
       } else {
         alert('Your passwords must be equal');
       }

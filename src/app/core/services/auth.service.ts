@@ -9,7 +9,7 @@ import {Observable} from 'rxjs/Observable';
 export class AuthService {
   public urls = {
     login: 'http://localhost:3000/api/login',
-    registration: 'http://localhost:3000/api/register',
+
   };
 
   constructor( private api: ApiService, private router: Router,
@@ -29,10 +29,6 @@ export class AuthService {
 
   login(userData) {
     return this.http.post<any>(this.urls.login, userData);
-  }
-
-  addNewUser (userData) {
-    return this.http.post(this.urls.registration, userData);
   }
 
   loguot() {

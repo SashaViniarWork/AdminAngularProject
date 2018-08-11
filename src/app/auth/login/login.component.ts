@@ -18,9 +18,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authCheck();
     this.loginForm = new FormGroup({
-      'email': new FormControl(null, [Validators.required, Validators.email]),
-      'password': new FormControl(null, [Validators.required, Validators.minLength(6)])
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      password: new FormControl(null, [Validators.required, Validators.minLength(6)])
     });
   }
 
@@ -29,7 +30,14 @@ export class LoginComponent implements OnInit {
     console.log(formGroup.value);
     this.auth.login(formGroup.value).subscribe( res => {
       localStorage.setItem('token', res.token);
+      this.router.navigate(['/crud-page']);
     });
-    console.log(localStorage.getItem('token'));
+  }
+
+  authCheck() {
+    if (localStorage.getItem('token')) {
+      alert('Sorry, but first you need to logout');
+      this.router.navigate(['/crud-page']);
+    }
   }
 }
