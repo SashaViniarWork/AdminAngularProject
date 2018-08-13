@@ -9,6 +9,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import {CrudUserService} from '../core/services/crud-user.service';
 import {ApiService} from '../core/api.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {UsersFilterPipe} from '../core/pipes/users-filter.pipe';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   declarations: [
     UserMainPageComponent,
     UserEditPageComponent,
-    AddUserComponent
+    AddUserComponent,
+    UsersFilterPipe
   ],
   providers: [
     CrudUserService,

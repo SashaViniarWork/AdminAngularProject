@@ -26,7 +26,6 @@ export class AddUserComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       phoneNumber: [null, Validators.required],
       birthday: [null, Validators.required],
-
       position: [null, Validators.required],
       password1: [null, [Validators.required, Validators.minLength(8)]],
       password2: [null, [Validators.required, Validators.minLength(8)]]
