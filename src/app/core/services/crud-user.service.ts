@@ -11,7 +11,8 @@ export class CrudUserService {
   public url = {
     registration: 'http://localhost:3000/api/register',
     allUsers: 'http://localhost:3000/users/getAllUsers',
-    currentUser: 'http://localhost:3000/users/user'
+    currentUser: 'http://localhost:3000/users/user',
+    updateUser: 'http://localhost:3000/users/update'
   };
 
   constructor(private http: HttpClient, private api: ApiService) { }
@@ -35,7 +36,7 @@ export class CrudUserService {
   }
 
   updaterUser(req) {
-    return this.api.put(this.url.currentUser + '/' + req.id, req);
+    return this.http.put(this.url.updateUser + '/' + req.id, req);
   }
 }
 

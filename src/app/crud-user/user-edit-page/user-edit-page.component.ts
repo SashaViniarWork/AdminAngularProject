@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CrudUserService} from '../../core/services/crud-user.service';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-edit-page',
@@ -52,7 +52,9 @@ export class UserEditPageComponent implements OnInit {
       phone: user.phoneNumber,
       email: user.email,
     }
-    this.crudUserServices.updaterUser(req).subscribe( res => {});
-    this.router.navigate(['crud-user/']);
+    this.crudUserServices.updaterUser(req).subscribe( res => {
+      this.router.navigate(['crud-user/']);
+    });
+
   }
 }
