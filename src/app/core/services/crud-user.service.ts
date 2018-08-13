@@ -9,7 +9,9 @@ import {Observable} from 'rxjs/Observable';
 export class CrudUserService {
 
   public url = {
-    registration: 'http://localhost:3000/api/register'
+    registration: 'http://localhost:3000/api/register',
+    allUsers: 'http://localhost:3000/users/getAllUsers',
+    currentUser: 'http://localhost:3000/users/user'
   };
 
   constructor(private http: HttpClient, private api: ApiService) { }
@@ -24,16 +26,16 @@ export class CrudUserService {
     return this.http.post(this.url.registration, userData);
   }
 
-  getUserList (req): Observable<any> {
-   return this.api.get(this.url);
+  getUserList (): Observable<any> {
+   return this.http.get(this.url.allUsers);
   }
 
   getCurrentUser (req): Observable<any> {
-    return this.api.get(this.url + '/' + req.id, );
+    return this.api.get(this.url.currentUser + '/' + req );
   }
 
   updaterUser(req) {
-    return this.api.put(this.url + '/' + req.id, req);
+    return this.api.put(this.url.currentUser + '/' + req.id, req);
   }
 }
 

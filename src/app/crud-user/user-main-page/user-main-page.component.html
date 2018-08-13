@@ -1,3 +1,32 @@
-<p>
-  user-main-page works!
-</p>
+<div class="row">
+  <div class="form">
+    <h2>Search</h2>
+    <div class="form-group col-md-12">
+      <input class="form-control" placeholder="Search">
+    </div>
+  </div>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Full name</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Phone number</th>
+      <th scope="col">Birthday</th>
+      <th scope="col">Position</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="user-interpolation" *ngFor="let user of userList">
+      <td>{{user.name + " " + user.surname}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.phone}}</td>
+      <td>{{user.birthday}}</td>
+      <td>{{user.position}}</td>
+      <td><i class="fas fa-pen" (click)="onSelect(user)"></i> <i class="fas fa-trash-alt"></i></td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
