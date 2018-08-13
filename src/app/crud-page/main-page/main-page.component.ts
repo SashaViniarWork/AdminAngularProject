@@ -13,16 +13,6 @@ export class MainPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.addNewPageForm = new FormGroup({
-      'label': new FormControl(),
-      'parentMenu' : new FormControl(),
-      'url' : new FormControl(),
-      'activePage' : new FormControl()
-    });
-  }
-
-  onSubmit() {
-    console.log('ky');
   }
 
 }
