@@ -12,6 +12,10 @@ export class AddNewPageComponent implements OnInit {
 
 public addInCount: FormGroup;
 ArrayInputs: any;
+isValid: boolean = true;
+changeValue(valid: boolean) {
+    this.isValid = valid;
+  }
 
   constructor(private fb: FormBuilder) {
     this.addInCount = fb.group({

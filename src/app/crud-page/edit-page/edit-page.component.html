@@ -1,42 +1,41 @@
-<div class="row edit-page-main-block">
-  <div class="col-lg-12 header-edit">
-    <h2>Edit header of select page</h2>
-    <input type="text" placeholder="Edit Header of Page">
-  </div>
-  <div class="col-lg-12 content-edit" >
-    <h2>Etit content of select page</h2>
-    <textarea name="page-content" id="page-content" rows="10" placeholder="Edit Page Content"></textarea>
-  </div>
-  <div class="col-lg-12 save-btn">
-    <input type="button" value="Save">
-  </div>
-</div>
-<form>
+<form class="mainForm">
 
   <div class="form-group">
     <label>Name</label>
     <input type="text" class="form-control" placeholder="Enter page`s name ">
   </div>
-  <div>
-    <fieldset class="form-group">
-      <div class="row">
-        <legend class="col-form-label col-sm-2 pt-0">Choose page</legend>
-        <div class="col-sm-10">
-          <div class="form-check-inline">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            <label class="form-check-label" for="gridRadios1">
-              Main page
-            </label>
-          </div>
-          <div class="form-check-inline">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-            <label class="form-check-label" for="gridRadios2">
-              Subpage
-            </label>
-          </div>
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Choose page</legend>
+      <div class="col-sm-10">
+        <div class="form-check-inline">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" (click)="changeValue(true)"
+                 value="option1" checked>
+          <label class="form-check-label" for="gridRadios2">
+            Subpage
+          </label>
         </div>
+        <div class="form-check-inline">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" (click)="changeValue(false)"
+                 value="option2">
+          <label class="form-check-label" for="gridRadios1">
+            Main page
+          </label>
+        </div>
+
       </div>
-    </fieldset>
+    </div>
+  </fieldset>
+  <div *ngIf="isValid">
+    <div class="form-group">
+      <label>Level</label>
+      <select class="custom-select" required>
+        <option value="">Select level</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
     <div class="form-group">
       <label>Select page (subpage)</label>
       <select class="custom-select" required>
@@ -48,34 +47,37 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <label>Count</label>
-    <input type="number" class="form-control" placeholder="Enter count of textarea">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-  <div class="form-group">
-    <label>Level</label>
-    <select class="custom-select" required>
-      <option value="">Select level</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label>Position</label>
-    <select class="custom-select" required>
-      <option value="">Select level</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">12</option>
-      <option value="5">123</option>
-      <option value="6">23</option>
-    </select>
-  </div>
+  <form [formGroup]="addCount" (ngSubmit)="send(addCount.value)">
+    <div class="form-group ">
+      <label>Count</label>
+      <input type="number" class="form-control" placeholder="Enter count of textarea" formControlName="count"
+             (change)="consoleValue()">
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group " *ngFor="let item of ArrayInputs.arr1">
+          <label for="exampleFormControlTextarea1">Text in page</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="{{item}}"
+                    placeholder="{{item}}"></textarea>
+        </div>
+      </div>
+
+      <div class=" col-lg-6">
+        <div class=" inr form-group" *ngFor="let item of ArrayInputs.arr2">
+          <label>Position</label>
+          <select class="custom-select" formControlName="{{item}}" required>
+            <option value="">Select position</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">12</option>
+            <option value="5">123</option>
+            <option value="6">23</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </form>
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
