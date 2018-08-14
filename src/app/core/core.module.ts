@@ -1,12 +1,13 @@
 import {NgModule, Optional, SkipSelf} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ApiService} from './api.service';
+import { UsersFilterPipe } from './pipes/users-filter.pipe';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [],
+  declarations: [UsersFilterPipe],
   providers: [
     ApiService
   ]

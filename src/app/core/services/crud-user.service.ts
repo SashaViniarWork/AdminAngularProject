@@ -38,6 +38,10 @@ export class CrudUserService {
   updaterUser(req) {
     return this.http.put(this.url.updateUser + '/' + req.id, req);
   }
+
+  disactiveUser(req) {
+    return this.http.put( this.url.updateUser + '/' + req.id, req);
+  }
 }
 
 

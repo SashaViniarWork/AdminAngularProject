@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {CrudUserService} from '../../core/services/crud-user.service';
 
+import { UsersFilterPipe } from '../../core/pipes/users-filter.pipe';
+
 @Component({
   selector: 'app-user-main-page',
   templateUrl: './user-main-page.component.html',
@@ -9,17 +11,42 @@ import {CrudUserService} from '../../core/services/crud-user.service';
 })
 export class UserMainPageComponent implements OnInit {
 
-  public userList
-  constructor(private crudUserServices: CrudUserService, private router: Router) { }
+  public userList;
+  public term;
+
+  constructor(private crudUserServices: CrudUserService, public router: Router) { }
 
   ngOnInit() {
-    this.crudUserServices.getUserList().subscribe( users => {
-      this.userList = users;
-      console.log(this.userList);
-    });
+    this.userListOutput();
   }
 
-  onSelect (user) {
+  onSelect(user) {
     this.router.navigate(['crud-user/user-edit/', user._id]);
+  }
+
+  removeUser(user) {
+    const ale = confirm('Are you shoore ?')
+    if ( ale ) {
+      const req = {
+        id: user._id,
+        isActive: false
+      }
+      this.crudUserServices.disactiveUser(req).subscribe(res => {
+        this.userListOutput();
+      });
+    }
+  }
+
+  userListOutput() {
+    const list = [];
+    this.crudUserServices.getUserList().subscribe( users => {
+      for (const i in users) {
+        if (users[i].isActive) {
+          list.push(users[i]);
+        }
+      }
+      this.userList = list;
+      console.log(this.userList);
+    });
   }
 }
