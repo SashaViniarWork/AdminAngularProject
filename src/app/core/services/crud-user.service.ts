@@ -8,7 +8,12 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class CrudUserService {
 
-  public url = '';
+  public url = {
+    registration: 'http://localhost:3000/api/register',
+    allUsers: 'http://localhost:3000/users/getAllUsers',
+    currentUser: 'http://localhost:3000/users/user',
+    updateUser: 'http://localhost:3000/users/update'
+  };
 
   constructor(private http: HttpClient, private api: ApiService) { }
 
@@ -17,16 +22,21 @@ export class CrudUserService {
   //   });
   // }
 
-  getUserList(req): Observable<any> {
-   return this.api.get(this.url);
+
+  addNewUser (userData) {
+    return this.http.post(this.url.registration, userData);
+  }
+
+  getUserList (): Observable<any> {
+   return this.http.get(this.url.allUsers);
   }
 
   getCurrentUser (req): Observable<any> {
-    return this.api.get(this.url + '/' + req.id, );
+    return this.api.get(this.url.currentUser + '/' + req );
   }
 
   updaterUser(req) {
-    return this.api.put(this.url + '/' + req.id, req);
+    return this.http.put(this.url.updateUser + '/' + req.id, req);
   }
 }
 

@@ -6,11 +6,20 @@
     <h2>Add New User</h2>
 
     <div class="form-row row">
+
       <div class="form-group col-md-6">
-        <label>Full name*</label>
-        <input type="text" class="form-control" formControlName="fullName" placeholder="Full Name" required>
-        <div *ngIf="addForm.controls['fullName'].errors  && !addForm.controls['fullName'].pristine">
-          <div *ngIf="!addForm.controls['fullName'].errors.required">Please add Full Name</div>
+        <label>User Name*</label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Name" required>
+        <div *ngIf="addForm.controls['name'].errors  && !addForm.controls['name'].pristine">
+          <div *ngIf="!addForm.controls['name'].errors.required">Please add Full Name</div>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label>User Surname*</label>
+        <input type="text" class="form-control" formControlName="surname" placeholder="Full Name" required>
+        <div *ngIf="addForm.controls['surname'].errors  && !addForm.controls['surname'].pristine">
+          <div *ngIf="!addForm.controls['surname'].errors.required">Please add Full Name</div>
+
         </div>
       </div>
       <div class="form-group col-md-6">
@@ -32,16 +41,6 @@
         <input type="text" class="form-control" formControlName="birthday" placeholder="Birthday" required>
         <div *ngIf="addForm.controls['birthday'].errors  && !addForm.controls['birthday'].pristine">
           <div *ngIf="!addForm.controls['birthday'].errors.required">Please add birthday</div>
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label>Role*</label>
-        <select class="form-control" formControlName="role" required>
-          <option selected>Choose</option>
-          <option>...</option>
-        </select>
-        <div *ngIf="addForm.controls['role'].errors  && !addForm.controls['role'].pristine">
-          <div *ngIf="!addForm.controls['role'].errors.required">Please choose role</div>
         </div>
       </div>
       <div class="form-group col-md-6">

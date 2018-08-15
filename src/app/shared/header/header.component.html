@@ -28,13 +28,13 @@
         </div>
       </div>
       <div class="col ml-auto navigate-bar {{closeStyle}}" id="navbarNav" >
-        <ul *ngIf="!menuValidation">
+        <ul *ngIf="!auth.loggedIn()">
           <li><a href="">Home</a></li>
           <li><a href="">Services</a></li>
           <li><a href="">Company</a></li>
           <li><a href="">Contact Us</a></li>
         </ul>
-        <ul *ngIf="menuValidation">
+        <ul *ngIf="auth.loggedIn()">
           <li><a href="#">Code Editor</a></li>
           <li><a routerLink="/crud-page">Pages</a></li>
           <li><a routerLink="/crud-user">Users</a></li>
