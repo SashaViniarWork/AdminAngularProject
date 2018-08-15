@@ -127,3 +127,11 @@ footer{
     }
   }
 }
+
+
+@media (max-width: 500px) {
+  .footer-bottom {
+    display: block !important;
+    text-align: center;
+  }
+}

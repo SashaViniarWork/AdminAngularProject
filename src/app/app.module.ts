@@ -30,7 +30,7 @@ import {AuthGuardService} from './core/services/auth-guard.service';
     AuthModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
   ],
 
   providers: [
