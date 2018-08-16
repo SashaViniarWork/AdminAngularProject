@@ -34,7 +34,7 @@ const routes: Routes = [
   {
     path: 'fin-operation',
     loadChildren: 'app/fin-operating/fin-operating.module#FinOperatingModule',
-    canActivate: [AuthGuardService]
+    // canActivate: [AuthGuardService]
   },
   {
     path: '**',
