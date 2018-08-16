@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {CrudUserService} from '../../core/services/crud-user.service';
-
 import { UsersFilterPipe } from '../../core/pipes/users-filter.pipe';
 
 @Component({

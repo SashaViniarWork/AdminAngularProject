@@ -14,6 +14,8 @@ import {AuthModule} from './auth/auth.module';
 import {FooterComponent} from './shared/footer/footer.component';
 import {TokenInterceptorService} from './core/services/token-interceptor.service';
 import {AuthGuardService} from './core/services/auth-guard.service';
+import {CrudPageService} from './core/services/crud-page.service';
+import {FinCompanyService} from "./core/services/fin-company.service";
 
 
 @NgModule({
@@ -34,10 +36,12 @@ import {AuthGuardService} from './core/services/auth-guard.service';
   ],
 
   providers: [
+    FinCompanyService,
     CrudUserService,
     ApiService,
     AuthService,
     AuthGuardService,
+    CrudPageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
