@@ -14,6 +14,7 @@ import {AuthModule} from './auth/auth.module';
 import {FooterComponent} from './shared/footer/footer.component';
 import {TokenInterceptorService} from './core/services/token-interceptor.service';
 import {AuthGuardService} from './core/services/auth-guard.service';
+import {FinCompanyService} from "./core/services/fin-company.service";
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {AuthGuardService} from './core/services/auth-guard.service';
   ],
 
   providers: [
+    FinCompanyService,
     CrudUserService,
     ApiService,
     AuthService,

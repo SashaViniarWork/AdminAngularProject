@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FinCompanyService} from '../../core/services/fin-company.service';
 
 @Component({
   selector: 'app-company-fin-operating',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyFinOperatingComponent implements OnInit {
 
-  constructor() { }
+  public operationList;
+
+  constructor( private finCompanyService: FinCompanyService) { }
 
   ngOnInit() {
+    this.finCompanyService.paymantsList().subscribe( res => {
+      this.operationList = res;
+      console.log(this.operationList);
+    });
   }
 
 }

@@ -6,6 +6,7 @@ import { FinOperatingRoutingModule } from './fin-operating-routing.module';
 import { EditComponent } from './edit/edit.component';
 import { UserFinOperatingComponent } from './user-fin-operating/user-fin-operating.component';
 import { CompanyFinOperatingComponent } from './company-fin-operating/company-fin-operating.component';
+import {FinCompanyService} from '../core/services/fin-company.service';
 
 @NgModule({
   imports: [
@@ -17,6 +18,9 @@ import { CompanyFinOperatingComponent } from './company-fin-operating/company-fi
     EditComponent,
     UserFinOperatingComponent,
     CompanyFinOperatingComponent
+  ],
+  providers: [
+    FinCompanyService
   ]
 })
 export class FinOperatingModule { }
