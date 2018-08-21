@@ -15,7 +15,7 @@ import {FooterComponent} from './shared/footer/footer.component';
 import {TokenInterceptorService} from './core/services/token-interceptor.service';
 import {AuthGuardService} from './core/services/auth-guard.service';
 import {CrudPageService} from './core/services/crud-page.service';
-import {FinCompanyService} from "./core/services/fin-company.service";
+import {FinCompanyService} from './core/services/fin-company.service';
 
 
 @NgModule({
@@ -32,7 +32,7 @@ import {FinCompanyService} from "./core/services/fin-company.service";
     AuthModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
 
   providers: [

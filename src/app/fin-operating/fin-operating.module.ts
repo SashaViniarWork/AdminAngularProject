@@ -8,19 +8,21 @@ import { UserFinOperatingComponent } from './user-fin-operating/user-fin-operati
 import { CompanyFinOperatingComponent } from './company-fin-operating/company-fin-operating.component';
 import {FinCompanyService} from '../core/services/fin-company.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FinCompanyPipe} from '../core/pipes/fin-company.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
     FinOperatingRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [
     FinOperatingComponent,
     EditComponent,
     UserFinOperatingComponent,
-    CompanyFinOperatingComponent
+    CompanyFinOperatingComponent,
+    FinCompanyPipe
   ],
   providers: [
     FinCompanyService

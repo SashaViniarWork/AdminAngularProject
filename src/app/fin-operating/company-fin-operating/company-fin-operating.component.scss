@@ -1,4 +1,3 @@
-$prise-inp-size: 50px;
 
 .serch-add {
   display: flex;
@@ -48,17 +47,27 @@ $prise-inp-size: 50px;
       padding-right: 10px;
     }
     input {
-      height: 80%;
-      width: $prise-inp-size;
+      width: 40%;
     }
   }
 
   .transact-holder {
     textarea {
       width: 100%;
-      height: 100%;
     }
   }
+
+  .date-picker-holder{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+
+    label {
+      padding: 10px;
+    }
+  }
+
 
   .save-btn-holder {
     display: flex;

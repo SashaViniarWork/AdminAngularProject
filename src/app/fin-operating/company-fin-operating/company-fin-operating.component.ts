@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FinCompanyService} from '../../core/services/fin-company.service';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {FormGroup, FormControl, Validators, NgModel} from '@angular/forms';
+import { FinCompanyPipe } from '../../core/pipes/fin-company.pipe';
 
 @Component({
   selector: 'app-company-fin-operating',
@@ -12,7 +13,8 @@ export class CompanyFinOperatingComponent implements OnInit {
   public operationList;
   public addNewBlock = false;
   public newTransactForm: FormGroup;
-
+  public term;
+  // public today = new Date().getFullYear() + '-' + new Date().getMonth() + '-' + new Date().getDate();
 
   constructor( private finCompanyService: FinCompanyService) { }
 
@@ -21,8 +23,9 @@ export class CompanyFinOperatingComponent implements OnInit {
     this.getTransactionList();
 
     this.newTransactForm = new FormGroup({
-      transaction: new FormControl('', [Validators.required]),
-      amount: new FormControl('', [Validators.required])
+      description: new FormControl('', [Validators.required]),
+      amount: new FormControl('', [Validators.required]),
+      transdate: new FormControl('' , [Validators.required]),
     });
   }
 
@@ -40,15 +43,16 @@ export class CompanyFinOperatingComponent implements OnInit {
 
   onSubmin (tran) {
     const operation = {
-      date: new Date(),
-      transactions: tran.transaction,
+      postdate: new Date(),
+      transdate: tran.transdate,
+      description: tran.description,
       amount: tran.amount,
-    }
+    };
     this.finCompanyService.addNewOperation(operation).subscribe(res => {
       this.getTransactionList();
       this.addNewBlock = !this.addNewBlock;
     });
-    console.log(tran);
+    console.log(operation);
 
   }
 
