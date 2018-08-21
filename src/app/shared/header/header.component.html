@@ -35,7 +35,7 @@
           <li><a href="">Contact Us</a></li>
         </ul>
         <ul *ngIf="auth.loggedIn()">
-          <li><a href="#">Code Editor</a></li>
+          <li><a routerLink="/fin-operation">Finance</a></li>
           <li><a routerLink="/crud-page">Pages</a></li>
           <li><a routerLink="/crud-user">Users</a></li>
           <li><a (click)="logout()" >Logout</a></li>
