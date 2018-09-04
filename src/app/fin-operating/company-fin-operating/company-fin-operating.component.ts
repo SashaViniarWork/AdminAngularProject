@@ -49,7 +49,7 @@ export class CompanyFinOperatingComponent implements OnInit {
       amount: tran.amount,
     };
     this.finCompanyService.addNewOperation(operation).subscribe(res => {
-      this.getTransactionList();
+      this.ngOnInit();
       this.addNewBlock = !this.addNewBlock;
     });
     console.log(operation);

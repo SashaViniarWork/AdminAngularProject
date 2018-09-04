@@ -15,6 +15,20 @@
     justify-content: flex-end;
   }
 
+  .filter-by-date {
+    display: flex;
+    align-items: center;
+    label {
+      padding: 5px;
+      margin: 0;
+    }
+    .filter-by-date-input {
+      margin-right: 10px;
+      width: 150px;
+      height: 30px;
+    }
+  }
+
 
 }
 

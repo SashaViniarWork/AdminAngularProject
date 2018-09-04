@@ -6,10 +6,20 @@
     <div class="row">
       <div class="col-lg-12 serch-add">
         <div class="row">
-          <div class="col-6 serch-field">
-            <input type="text" placeholder="Serch" [(ngModel)]="term">
+          <div class="col-10">
+            <div class="row">
+              <div class="col-4 serch-field">
+                <input type="text" placeholder="Serch" [(ngModel)]="term">
+              </div>
+              <div class="col filter-by-date">
+                <label>Start date:</label>
+                <input type="date" name="filter-by-date-input" class="filter-by-date-input">
+                <label>End date:</label>
+                <input type="date" name="filter-by-date-input" class="filter-by-date-input">
+              </div>
+            </div>
           </div>
-          <div class="col-6 add-new-btn">
+          <div class="col-2 add-new-btn">
             <input type="button" value="Add new position" class="btn" (click)="hideAddNew()">
           </div>
         </div>
@@ -19,7 +29,7 @@
           <div class="row add-new-transact">
             <div class="col-12 transact-holder">
               <label>Describe you`r operation: </label>
-              <textarea placeholder="Describe you`r operation" formControlName="description"></textarea>
+              <textarea placeholder="Describe" formControlName="description"></textarea>
             </div>
             <div class="col-2 price-holder">
               <label for="price">Price: </label>
