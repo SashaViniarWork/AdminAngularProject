@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CrudUserService} from '../../core/services/crud-user.service';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class AddUserComponent implements OnInit {
 
   }
 
-  constructor(private crudUserService: CrudUserService, private fb: FormBuilder) {
+  constructor(private crudUserService: CrudUserService, private fb: FormBuilder,
+              private router: Router) {
 
     this.addForm = fb.group({
       name: [null, Validators.required],
@@ -47,19 +49,21 @@ export class AddUserComponent implements OnInit {
           position: this.addForm.value.position,
           phone: this.addForm.value.phoneNumber,
           email: this.addForm.value.email,
+          isActive: true
         };
         this.crudUserService.addNewUser(userInfo).subscribe( req => {
 
+          this.addForm.reset();
+          this.router.navigate(['/crud-user/user-main']);
         });
         console.log(userInfo);
-         this.addForm.reset();
 
       } else {
         alert('Your passwords must be equal');
       }
 
     } else {
-      alert('Please fill your fields')
+      alert('Please fill your fields');
     }
 
   }
