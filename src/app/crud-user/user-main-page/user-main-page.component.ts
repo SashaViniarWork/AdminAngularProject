@@ -37,15 +37,8 @@ export class UserMainPageComponent implements OnInit {
   }
 
   userListOutput() {
-    const list = [];
     this.crudUserServices.getUserList().subscribe( users => {
-      for (const i in users) {
-        if (users[i].isActive) {
-          list.push(users[i]);
-        }
-      }
-      this.userList = list;
-      console.log(this.userList);
+      this.userList = users;
     });
   }
 }

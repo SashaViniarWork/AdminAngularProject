@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FinCompanyService} from '../../core/services/fin-company.service';
 import {FormGroup, FormControl, Validators, NgModel} from '@angular/forms';
 import { FinCompanyPipe } from '../../core/pipes/fin-company.pipe';
+import { DateFilterPipe } from '../../core/pipes/date-filter.pipe';
 
 @Component({
   selector: 'app-company-fin-operating',
@@ -14,12 +15,15 @@ export class CompanyFinOperatingComponent implements OnInit {
   public addNewBlock = false;
   public newTransactForm: FormGroup;
   public term;
-  // public today = new Date().getFullYear() + '-' + new Date().getMonth() + '-' + new Date().getDate();
+  public today = new Date();
+  public startDate;
+  public endDate = this.today;
+
 
   constructor( private finCompanyService: FinCompanyService) { }
 
   ngOnInit() {
-
+    console.log(this.today);
     this.getTransactionList();
 
     this.newTransactForm = new FormGroup({

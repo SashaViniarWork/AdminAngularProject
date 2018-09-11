@@ -9,20 +9,23 @@ import { CompanyFinOperatingComponent } from './company-fin-operating/company-fi
 import {FinCompanyService} from '../core/services/fin-company.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FinCompanyPipe} from '../core/pipes/fin-company.pipe';
-
+import {BsDatepickerModule} from 'ngx-bootstrap';
+import {DateFilterPipe} from '../core/pipes/date-filter.pipe';
 @NgModule({
   imports: [
     CommonModule,
     FinOperatingRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    BsDatepickerModule.forRoot()
   ],
   declarations: [
     FinOperatingComponent,
     EditComponent,
     UserFinOperatingComponent,
     CompanyFinOperatingComponent,
-    FinCompanyPipe
+    FinCompanyPipe,
+    DateFilterPipe
   ],
   providers: [
     FinCompanyService

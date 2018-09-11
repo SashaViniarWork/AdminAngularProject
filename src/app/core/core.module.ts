@@ -3,12 +3,13 @@ import {CommonModule} from '@angular/common';
 import {ApiService} from './api.service';
 import { UsersFilterPipe } from './pipes/users-filter.pipe';
 import { FinCompanyPipe } from './pipes/fin-company.pipe';
+import { DateFilterPipe } from './pipes/date-filter.pipe';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [UsersFilterPipe, FinCompanyPipe],
+  declarations: [UsersFilterPipe, FinCompanyPipe, DateFilterPipe],
   providers: [
     ApiService
   ]

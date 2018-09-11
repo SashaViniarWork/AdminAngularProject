@@ -10,7 +10,7 @@ export class FinCompanyPipe implements PipeTransform {
       return transactionList;
     } else {
       return transactionList.filter( tran => {
-        const row: string = tran.description.toLowerCase() + ' ' + tran.amount.toLowerCase();
+        const row: string = tran.description.toLowerCase() + ' ' + tran.amount;
         tran = row.includes(term.toLowerCase());
         return tran;
       });
