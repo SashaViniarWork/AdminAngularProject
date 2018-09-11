@@ -21,12 +21,12 @@ export class UserEditPageComponent implements OnInit {
     this.userId = this.route.snapshot.paramMap.get('id');
 
     this.userInfo = new FormGroup({
-      name: new FormControl([null, Validators.required]),
-      surename: new FormControl([null, Validators.required]),
-      email: new FormControl([null, [Validators.required, Validators.email]]),
-      phoneNumber: new FormControl([null, Validators.required]),
-      birthday: new FormControl( [null, Validators.required]),
-      position: new FormControl([null, Validators.required]),
+      name: new FormControl(['', Validators.required]),
+      surename: new FormControl(['', Validators.required]),
+      email: new FormControl(['', [Validators.required, Validators.email]]),
+      phoneNumber: new FormControl(['', Validators.required]),
+      birthday: new FormControl( ['', Validators.required]),
+      position: new FormControl(['', Validators.required]),
     });
 
     this.crudUserServices.getCurrentUser(this.userId).subscribe(user => {

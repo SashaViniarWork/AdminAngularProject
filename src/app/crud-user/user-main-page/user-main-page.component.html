@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="col-lg-12 table-body" *ngFor="let user of userList | usersFilter:term">
-        <div class="row user-interpolation">
+        <div class="row user-interpolation" *ngIf="user.isActive">
           <div class="col-6 col-sm user-data"><p>{{user.name + " " + user.surname}}</p></div>
           <div class="col-6 col-sm user-data"><p>{{user.email}}</p></div>
           <div class="col-6 col-sm user-data"><p>{{user.phone}}</p></div>

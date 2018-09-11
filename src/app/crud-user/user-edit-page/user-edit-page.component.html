@@ -1,5 +1,5 @@
 <h2>Edit User</h2>
-<div class="row edit-user-form">
+<div *ngIf="userData" class="row edit-user-form">
   <form class="form-row" [formGroup]="userInfo" (ngSubmit)="onSubmit(userInfo.value)">
     <div class="col-lg-6 edit-input-box">
       <p>Name:</p>

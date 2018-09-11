@@ -16,6 +16,7 @@ import {TokenInterceptorService} from './core/services/token-interceptor.service
 import {AuthGuardService} from './core/services/auth-guard.service';
 import {CrudPageService} from './core/services/crud-page.service';
 import {FinCompanyService} from './core/services/fin-company.service';
+import {BsDatepickerModule} from 'ngx-bootstrap';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {FinCompanyService} from './core/services/fin-company.service';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    BsDatepickerModule.forRoot()
   ],
 
   providers: [
