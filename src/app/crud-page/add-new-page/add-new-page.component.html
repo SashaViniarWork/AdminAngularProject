@@ -61,18 +61,19 @@
                   placeholder="{{item}}"></textarea>
       </div>
 
-    <div class=" col-lg-6">
-      <div class=" inr form-group" *ngFor="let item of ArrayInputs.arr2">
-        <label>Position</label>
-        <select class="custom-select" formControlName="{{item}}" required>
-          <option value="">Select position</option>
-          <option value="1">Column 1</option>
-          <option value="2">Column 2</option>
-          <option value="3">Column 3</option>
-          <option value="4">Column 2&3</option>
-          <option value="5">Column 1&2</option>
-          <option value="6">Column 1&2&3</option>
-        </select>
+      <div class=" col-lg-6">
+        <div class=" inr form-group" *ngFor="let item of ArrayInputs.arr2">
+          <label>Position</label>
+          <select class="custom-select" formControlName="{{item}}" required>
+            <option value="">Select position</option>
+            <option value="1">Column 1</option>
+            <option value="2">Column 2</option>
+            <option value="3">Column 3</option>
+            <option value="4">Column 2&3</option>
+            <option value="5">Column 1&2</option>
+            <option value="6">Column 1&2&3</option>
+          </select>
+        </div>
       </div>
     </div>
   </div>

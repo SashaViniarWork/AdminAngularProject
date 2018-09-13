@@ -10,17 +10,8 @@ import {CrudPageService} from '../../core/services/crud-page.service';
 })
 export class AddNewPageComponent implements OnInit {
 
-<<<<<<< HEAD
-public addInCount: FormGroup;
-ArrayInputs: any;
-isValid: boolean = true;
-changeValue(valid: boolean) {
-    this.isValid = valid;
-  }
-=======
->>>>>>> dev_ira
 
-// public formControlNewPage: FormGroup;
+public formControlNewPage: FormGroup;
   public addInCount: FormGroup;
   ArrayInputs: any;
   isValid: boolean = true;
