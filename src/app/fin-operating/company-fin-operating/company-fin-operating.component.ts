@@ -51,13 +51,20 @@ export class CompanyFinOperatingComponent implements OnInit {
       transdate: tran.transdate,
       description: tran.description,
       amount: tran.amount,
+      isActive: true
     };
     this.finCompanyService.addNewOperation(operation).subscribe(res => {
-      this.ngOnInit();
       this.addNewBlock = !this.addNewBlock;
+      this.ngOnInit();
     });
     console.log(operation);
+  }
 
+  deactiveOperation( operation ) {
+    operation.isActive = false;
+    this.finCompanyService.deactivateOperation(operation).subscribe( res => {
+      this.ngOnInit();
+    });
   }
 
 
