@@ -1,0 +1,50 @@
+<div class="col-lg-12 user-table">
+  <div class="row">
+    <p>User name: User</p>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 table-head">
+      <div class="row">
+        <div class="col-6 col-sm"><p>Date</p></div>
+        <div class="col-6 col-sm"><p>Log</p></div>
+        <div class="col-6 col-sm"><p>Dayoff/Vacation</p></div>
+        <div class="col-6 col-sm"><p>Proof</p></div>
+        <div class="col-6 col-sm"><p>Action</p></div>
+      </div>
+    </div>
+
+    <!--<div class="col-lg-12 table-body" *ngFor="let user of userList | usersFilter:term">-->
+    <!--<div class="row user-interpolation" *ngIf="user.isActive">-->
+    <!--<div class="col-6 col-sm user-data">-->
+    <!--<span (click)="goUserVacation(user)">{{user.name + " " + user.surname}}</span>-->
+    <!--</div>-->
+    <!--<div class="col-6 col-sm user-data"><p>{{user.email}}</p></div>-->
+    <!--<div class="col-6 col-sm user-data"><p>{{user.phone}}</p></div>-->
+    <!--<div class="col-6 col-sm user-data"><p>{{user.birthday}}</p></div>-->
+    <!--<div class="col-6 col-sm user-data"><p>{{user.position}}</p></div>-->
+    <!--<div class="col-6 col-sm user-data"><i class="fas fa-pen" (click)="onSelect(user)"></i> <i-->
+    <!--class="fas fa-trash-alt" (click)="removeUser(user)"></i></div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="col-lg-12 table-body">
+      <div class="row user-interpolation">
+        <div class="col-6 col-sm user-data"><p>Date</p></div>
+        <div class="col-6 col-sm user-data"><p>Log</p></div>
+        <div class="col-6 col-sm user-data"><p>12/09/2018</p></div>
+        <div class="col-6 col-sm user-data"><p>File</p></div>
+        <div class="col-6 col-sm user-data"><i class="fas fa-pen" (click)="onSelect(user)"></i> <i
+          class="fas fa-trash-alt" (click)="removeUser(user)"></i></div>
+      </div>
+    </div>
+    <div class="col-lg-12 table-body">
+      <div class="row user-interpolation">
+        <div class="col-6 col-sm user-data"><p>Date</p></div>
+        <div class="col-6 col-sm user-data"><p>Log</p></div>
+        <div class="col-6 col-sm user-data"><p>12/09/2018</p></div>
+        <div class="col-6 col-sm user-data"><p>File</p></div>
+        <div class="col-6 col-sm user-data"><i class="fas fa-pen" (click)="onSelect(user)"></i> <i
+          class="fas fa-trash-alt" (click)="removeUser(user)"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
