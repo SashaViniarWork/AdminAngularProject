@@ -2,7 +2,11 @@
   <div class="form page-head">
     <div class="form-group col-md-12 serch-add">
       <input class="form-control serch" placeholder="Search" [(ngModel)]="term">
-      <input type="button" value="Add New User" class="btn add-user" (click)="router.navigate(['crud-user/user-add'])">
+      <div>
+        <button (click)="router.navigate(['crud-user/time-off-list'])" class="btn add-user">Time-off list</button>
+        <input type="button" value="Add New User" class="btn add-user"
+               (click)="router.navigate(['crud-user/user-add'])">
+      </div>
     </div>
   </div>
 
@@ -20,12 +24,15 @@
       </div>
       <div class="col-lg-12 table-body" *ngFor="let user of userList | usersFilter:term">
         <div class="row user-interpolation" *ngIf="user.isActive">
-          <div class="col-6 col-sm user-data"><p>{{user.name + " " + user.surname}}</p></div>
+          <div class="col-6 col-sm user-data">
+            <span (click)="goUserVacation(user)">{{user.name + " " + user.surname}}</span>
+          </div>
           <div class="col-6 col-sm user-data"><p>{{user.email}}</p></div>
           <div class="col-6 col-sm user-data"><p>{{user.phone}}</p></div>
           <div class="col-6 col-sm user-data"><p>{{user.birthday}}</p></div>
           <div class="col-6 col-sm user-data"><p>{{user.position}}</p></div>
-          <div class="col-6 col-sm user-data"><i class="fas fa-pen" (click)="onSelect(user)"></i> <i class="fas fa-trash-alt" (click)="removeUser(user)"></i></div>
+          <div class="col-6 col-sm user-data"><i class="fas fa-pen" (click)="onSelect(user)"></i> <i
+            class="fas fa-trash-alt" (click)="removeUser(user)"></i></div>
         </div>
       </div>
     </div>

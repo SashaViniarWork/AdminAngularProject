@@ -10,7 +10,6 @@ import {CrudPageService} from '../../core/services/crud-page.service';
 })
 export class AddNewPageComponent implements OnInit {
 
-
 public formControlNewPage: FormGroup;
   public addInCount: FormGroup;
   ArrayInputs: any;

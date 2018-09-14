@@ -1,9 +1,11 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {UserEditPageComponent} from './user-edit-page/user-edit-page.component';
 import {UserMainPageComponent} from './user-main-page/user-main-page.component';
 import {AddUserComponent} from './add-user/add-user.component';
-import { AuthGuardService } from '../core/services/auth-guard.service';
+import {UserVacationComponent} from "./user-vacation/user-vacation.component";
+import {TimeOffListComponent} from "./time-off-list/time-off-list.component";
+import {UserProfileComponent} from "./user-profile/user-profile.component";
 
 const routes: Routes = [
   {
@@ -14,6 +16,14 @@ const routes: Routes = [
   {
     path: 'user-edit/:id',
     component: UserEditPageComponent
+  },
+  {
+    path: 'user-profile/:id',
+    component: UserProfileComponent
+  },
+  {
+    path: 'time-off-list',
+    component: TimeOffListComponent
   },
   {
     path: 'user-add',
@@ -30,4 +40,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CrudUserRoutingModule { }
+export class CrudUserRoutingModule {
+}
