@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {CrudUserService} from '../../core/services/crud-user.service';
-import { UsersFilterPipe } from '../../core/pipes/users-filter.pipe';
+import {UsersFilterPipe} from '../../core/pipes/users-filter.pipe';
 
 @Component({
   selector: 'app-user-main-page',
@@ -13,7 +13,8 @@ export class UserMainPageComponent implements OnInit {
   public userList;
   public term;
 
-  constructor(private crudUserServices: CrudUserService, public router: Router) { }
+  constructor(private crudUserServices: CrudUserService, public router: Router) {
+  }
 
   ngOnInit() {
     this.userListOutput();
@@ -23,9 +24,13 @@ export class UserMainPageComponent implements OnInit {
     this.router.navigate(['crud-user/user-edit/', user._id]);
   }
 
+  goUserVacation(user) {
+    this.router.navigate(['crud-user/user-profile/', user._id]);
+  }
+
   removeUser(user) {
     const ale = confirm('Are you shoore ?')
-    if ( ale ) {
+    if (ale) {
       const req = {
         id: user._id,
         isActive: false
@@ -37,7 +42,7 @@ export class UserMainPageComponent implements OnInit {
   }
 
   userListOutput() {
-    this.crudUserServices.getUserList().subscribe( users => {
+    this.crudUserServices.getUserList().subscribe(users => {
       this.userList = users;
     });
   }

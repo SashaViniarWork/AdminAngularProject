@@ -1,12 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppRoutingModule} from './app-routing.module';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
-import { AppComponent } from './app.component';
-import { ErrorPageComponent } from './shared/error-page/error-page.component';
-import { CrudUserService } from './core/services/crud-user.service';
-import { ApiService } from './core/api.service';
+import {AppComponent} from './app.component';
+import {ErrorPageComponent} from './shared/error-page/error-page.component';
+import {CrudUserService} from './core/services/crud-user.service';
+import {ApiService} from './core/api.service';
 import {HeaderComponent} from './shared/header/header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './core/services/auth.service';
@@ -19,22 +19,23 @@ import {FinCompanyService} from './core/services/fin-company.service';
 import {BsDatepickerModule} from 'ngx-bootstrap';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     ErrorPageComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
-    BrowserModule ,
+    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     AuthModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
   ],
 
   providers: [
@@ -52,4 +53,5 @@ import {BsDatepickerModule} from 'ngx-bootstrap';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
