@@ -9,7 +9,8 @@ import {CrudPageService} from '../../core/services/crud-page.service';
   styleUrls: ['./add-new-page.component.scss']
 })
 export class AddNewPageComponent implements OnInit {
-// public formControlNewPage: FormGroup;
+
+public formControlNewPage: FormGroup;
   public addInCount: FormGroup;
   ArrayInputs: any;
   isValid: boolean = true;
