@@ -1,18 +1,28 @@
 
-.serch-add {
+.search-add {
   display: flex;
   justify-content: space-between;
   .row {
     width: 100%;
-  }
-  input[type="text"] {
-    height: 100%;
-    width: 100%;
+    .search-field {
+      display: flex;
+      align-items: center;
+      input {
+        height: 30px;
+        width: 100%;
+      }
+      margin-bottom: 30px;
+    }
   }
 
   .add-new-btn {
     display: flex;
     justify-content: flex-end;
+    input[type="button"] {
+      height: 50px;
+      background-color: #495b6c;;
+      color: white;
+    }
   }
 
   .filter-by-date {
@@ -39,15 +49,41 @@
 }
 
 .center-pos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  p {
+    margin: 0;
+  }
 }
 
 .left-pos {
   text-align: left;
+  display: flex;
+  align-items: center;
+  p {
+    margin: 8px;
+  }
 }
 
 .comp-table-body {
   border-top: 1px solid #d0cfcf;
+
+  .publicate-date-field {
+    position: relative;
+    i {
+      font-size: 18px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(0,-50%);
+      cursor: pointer;
+      &:hover {
+        color: rgba(247, 147, 30, 0.95);
+      }
+    }
+  }
 }
 
 .add-new-transact {
