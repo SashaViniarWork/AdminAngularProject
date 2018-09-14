@@ -2,7 +2,11 @@
   <div class="form page-head">
     <div class="form-group col-md-12 serch-add">
       <input class="form-control serch" placeholder="Search" [(ngModel)]="term">
-      <input type="button" value="Add New User" class="btn add-user" (click)="router.navigate(['crud-user/user-add'])">
+      <div>
+        <button (click)="router.navigate(['crud-user/time-off-list'])" class="btn add-user">Time-off list</button>
+        <input type="button" value="Add New User" class="btn add-user"
+               (click)="router.navigate(['crud-user/user-add'])">
+      </div>
     </div>
   </div>
 

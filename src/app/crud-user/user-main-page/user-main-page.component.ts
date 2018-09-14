@@ -25,7 +25,7 @@ export class UserMainPageComponent implements OnInit {
   }
 
   goUserVacation(user) {
-    this.router.navigate(['crud-user/user-vacation/', user._id]);
+    this.router.navigate(['crud-user/user-profile/', user._id]);
   }
 
   removeUser(user) {

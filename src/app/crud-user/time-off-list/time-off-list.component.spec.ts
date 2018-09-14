@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserVacationComponent } from './user-vacation.component';
+import { TimeOffListComponent } from './time-off-list.component';
 
-describe('UserVacationComponent', () => {
-  let component: UserVacationComponent;
-  let fixture: ComponentFixture<UserVacationComponent>;
+describe('TimeOffListComponent', () => {
+  let component: TimeOffListComponent;
+  let fixture: ComponentFixture<TimeOffListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserVacationComponent ]
+      declarations: [ TimeOffListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserVacationComponent);
+    fixture = TestBed.createComponent(TimeOffListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
