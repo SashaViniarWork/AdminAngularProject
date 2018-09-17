@@ -1,13 +1,13 @@
 <h2>Edit User</h2>
-<div *ngIf="userData" class="row edit-user-form">
-  <form class="form-row" [formGroup]="userInfo" (ngSubmit)="onSubmit(userInfo.value)">
+<div  class="row edit-user-form">
+  <form *ngIf="userData" class="form-row" [formGroup]="userInfo" (ngSubmit)="onSubmit(userInfo.value)">
     <div class="col-lg-6 edit-input-box">
       <p>Name:</p>
       <input type="text" placeholder="Name" class="form-control" formControlName="name">
     </div>
     <div class="col-lg-6 edit-input-box">
       <p>Surname:</p>
-      <input type="text" placeholder="Surname" class="form-control" formControlName="surename">
+      <input type="text" placeholder="Surname" class="form-control" formControlName="surname">
     </div>
     <div class="col-lg-6 edit-input-box">
       <p>Email:</p>

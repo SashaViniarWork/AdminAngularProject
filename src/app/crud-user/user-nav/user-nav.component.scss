@@ -1,0 +1,18 @@
+
+.page-head {
+  width: 100%;
+  .serch-add {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .serch {
+      width: 30%;
+    }
+
+    .add-user {
+      background-color: #495b6c;
+      color: white;
+    }
+  }
+}

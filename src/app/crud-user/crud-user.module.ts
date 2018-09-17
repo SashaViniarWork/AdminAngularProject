@@ -12,6 +12,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UsersFilterPipe} from '../core/pipes/users-filter.pipe';
 import {TimeOffListComponent} from './time-off-list/time-off-list.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
+import {UserTimeOffComponent} from './user-time-off/user-time-off.component';
+import {UserNavComponent} from './user-nav/user-nav.component';
+import {BsDatepickerModule} from "ngx-bootstrap";
+import {CrudUserComponent} from "./add-user.component";
 
 @NgModule({
   imports: [
@@ -19,15 +23,19 @@ import {UserProfileComponent} from './user-profile/user-profile.component';
     CrudUserRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot(),
   ],
   declarations: [
+    CrudUserComponent,
     UserMainPageComponent,
     UserEditPageComponent,
     AddUserComponent,
     UsersFilterPipe,
     TimeOffListComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UserTimeOffComponent,
+    UserNavComponent
   ],
   providers: [
     CrudUserService,

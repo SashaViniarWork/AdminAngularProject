@@ -1,0 +1,46 @@
+.waiting {
+  background: lightskyblue;
+}
+
+.agreed {
+  background: green;
+}
+
+.rejected {
+  background: red;
+}
+
+.user-interpolation {
+  border-top: 1px solid #d0cfcf;
+  align-items: center;
+  i {
+    margin-right: 9px;
+    cursor: pointer;
+    &:hover {
+      color: rgba(247, 147, 30, 0.95);
+    }
+  }
+}
+
+.table-body:last-child {
+  .user-interpolation {
+    border-bottom: 1px solid #d0cfcf;
+  }
+}
+
+.user-data {
+  padding: 10px;
+  p {
+    margin: 0px;
+  }
+}
+
+.user-table {
+  text-align: center;
+}
+
+.table-head {
+  p {
+    font-weight: bold;
+  }
+}
