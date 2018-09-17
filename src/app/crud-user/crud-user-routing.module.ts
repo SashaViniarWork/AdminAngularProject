@@ -3,9 +3,9 @@ import {Routes, RouterModule} from '@angular/router';
 import {UserEditPageComponent} from './user-edit-page/user-edit-page.component';
 import {UserMainPageComponent} from './user-main-page/user-main-page.component';
 import {AddUserComponent} from './add-user/add-user.component';
-import {UserVacationComponent} from "./user-vacation/user-vacation.component";
 import {TimeOffListComponent} from "./time-off-list/time-off-list.component";
 import {UserProfileComponent} from "./user-profile/user-profile.component";
+import {UserTimeOffComponent} from "./user-time-off/user-time-off.component";
 
 const routes: Routes = [
   {
@@ -16,6 +16,10 @@ const routes: Routes = [
   {
     path: 'user-edit/:id',
     component: UserEditPageComponent
+  },
+  {
+    path: 'user-time-off',
+    component: UserTimeOffComponent
   },
   {
     path: 'user-profile/:id',

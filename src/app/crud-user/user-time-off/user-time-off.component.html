@@ -1,0 +1,90 @@
+<app-user-nav></app-user-nav>
+<hr>
+
+<h2>Add Dayoff/Vacation</h2>
+
+<div class="row edit-user-form">
+  <form class="col-12" [formGroup]="userDayOff" (ngSubmit)="onSubmit(userDayOff.value)">
+    <div class="row">
+      <div class="col-6">
+        <div class="btn-group">
+          <label class="btn btn-primary" (click)="selectDayOff()"
+                 [ngClass]="{'active': userDayOff.value.type === 'dayOff'}">
+            <input type="radio" formControlName="type" value="dayOff"> DayOff
+          </label>
+          <label class="btn btn-primary" (click)="selectVacation(userDayOff.value)"
+                 [ngClass]="{'active': userDayOff.value.type === 'vacation'}">
+            <input type="radio" formControlName="type" value="vacation"> Vacation
+          </label>
+        </div>
+      </div>
+      <div class="col-6 form-group">
+        <input type="text"
+               placeholder="Daterangepicker"
+               class="form-control"
+               bsDaterangepicker
+               formControlName="period">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 form-group" *ngIf="userDayOff.value.type === 'dayOff'">
+        <p>Reason:</p>
+        <input type="text" placeholder="Reason" class="form-control" formControlName="reason" [(ngModel)]="reason">
+      </div>
+      <div class="col-6 " *ngIf="userDayOff.value.type === 'dayOff'">
+        <p>Proof:</p>
+        <input type="file" placeholder="Proof" formControlName="proof">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 btn-holder">
+        <button type="submit" class="btn btn-primary" [disabled]="userDayOff.invalid">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<hr>
+
+<div class="col-lg-12 user-table">
+  <div class="row">
+    <p>User name: User</p>
+  </div>
+  <div class="row user-table">
+    <div class="w-100  table-head">
+      <div class="row">
+        <div class="col-6 col-sm p-0"><p>Dayoff/Vacation</p></div>
+        <div class="col-12 col-sm"><p>From</p></div>
+        <div class="col-12 col-sm"><p>To</p></div>
+        <div class="col-6 col-sm"><p>Add date</p></div>
+        <div class="col-6 col-sm"><p>Log</p></div>
+        <div class="col-6 col-sm"><p>Reason</p></div>
+        <div class="col-6 col-sm"><p>Proof</p></div>
+        <div class="col-6 col-sm"><p>Status</p></div>
+        <div class="col-6 col-sm"><p>Action</p></div>
+      </div>
+    </div>
+    <div class="w-100 table-body" *ngIf="userDataDayOff">
+      <div *ngFor="let user of userDataDayOff ">
+        <div class="row user-interpolation" [ngClass]=" {
+        'waiting': user.status === 'waiting',
+        'agreed': user.status === 'agreed',
+        'rejected': user.status === 'rejected'
+         }">
+          <div class="col-6 col-sm user-data"><p>{{user.typeOff}}</p></div>
+          <div class="col-12 col-sm user-data"><p> {{user.period[0] | date: 'd/M/y'}} </p></div>
+          <div class="col-12 col-sm user-data"><p> {{user.period[1] | date:
+            'd/M/y'}}</p></div>
+          <div class="col-6 col-sm user-data"><p>{{user.publDate | date: 'd/M/y' }}</p></div>
+          <div class="col-6 col-sm user-data"><p>name User</p></div>
+          <div class="col-6 col-sm user-data"><p>{{user.reason}}</p></div>
+          <div class="col-6 col-sm user-data"><p>proof</p></div>
+          <div class="col-6 col-sm user-data"><p>{{user.status}}</p></div>
+          <div class="col-6 col-sm user-data">
+            <i class="fas fa-pen" (click)="editTimeOff(user)"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

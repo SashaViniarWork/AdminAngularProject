@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CrudUserService} from '../../core/services/crud-user.service';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -14,7 +14,8 @@ export class UserEditPageComponent implements OnInit {
   public userData;
   public userInfo: FormGroup;
 
-  constructor(private crudUserServices: CrudUserService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private crudUserServices: CrudUserService, private route: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit() {
 
@@ -22,18 +23,17 @@ export class UserEditPageComponent implements OnInit {
 
     this.userInfo = new FormGroup({
       name: new FormControl(['', Validators.required]),
-      surename: new FormControl(['', Validators.required]),
+      surname: new FormControl(['', Validators.required]),
       email: new FormControl(['', [Validators.required, Validators.email]]),
       phoneNumber: new FormControl(['', Validators.required]),
-      birthday: new FormControl( ['', Validators.required]),
+      birthday: new FormControl(['', Validators.required]),
       position: new FormControl(['', Validators.required]),
     });
 
     this.crudUserServices.getCurrentUser(this.userId).subscribe(user => {
       this.userData = user;
-      console.log(this.userData);
       this.userInfo.controls['name'].setValue(this.userData.name);
-      this.userInfo.controls['surename'].setValue(this.userData.surname);
+      this.userInfo.controls['surname'].setValue(this.userData.surname);
       this.userInfo.controls['email'].setValue(this.userData.email);
       this.userInfo.controls['phoneNumber'].setValue(this.userData.phone);
       this.userInfo.controls['birthday'].setValue(this.userData.birthday);
@@ -52,7 +52,7 @@ export class UserEditPageComponent implements OnInit {
       phone: user.phoneNumber,
       email: user.email,
     }
-    this.crudUserServices.updaterUser(req).subscribe( res => {
+    this.crudUserServices.updaterUser(req).subscribe(res => {
       this.router.navigate(['crud-user/']);
     });
 
