@@ -54,8 +54,7 @@
     <div class="w-100  table-head">
       <div class="row">
         <div class="col-6 col-sm p-0"><p>Dayoff/Vacation</p></div>
-        <div class="col-12 col-sm"><p>From</p></div>
-        <div class="col-12 col-sm"><p>To</p></div>
+        <div class="col-12 col-sm"><p>From <br> To</p></div>
         <div class="col-6 col-sm"><p>Add date</p></div>
         <div class="col-6 col-sm"><p>Log</p></div>
         <div class="col-6 col-sm"><p>Reason</p></div>
@@ -72,10 +71,14 @@
         'rejected': user.status === 'rejected'
          }">
           <div class="col-6 col-sm user-data"><p>{{user.typeOff}}</p></div>
-          <div class="col-12 col-sm user-data"><p> {{user.period[0] | date: 'd/M/y'}} </p></div>
-          <div class="col-12 col-sm user-data"><p> {{user.period[1] | date:
-            'd/M/y'}}</p></div>
-          <div class="col-6 col-sm user-data"><p>{{user.publDate | date: 'd/M/y' }}</p></div>
+          <div *ngIf="user.period[0] !== user.period[1]">
+            <div class="col-12 col-sm user-data"><p> {{user.period[0] | date: 'dd/MM/yyyy'}}</p></div>
+            <div class="col-12 col-sm user-data"><p> {{user.period[1] | date: 'dd/MM/yyyy'}}</p></div>
+          </div>
+          <div *ngIf="user.period[0] === user.period[1]">
+            <div class="col-12 col-sm user-data"><p> {{user.period[0] | date: 'dd/MM/yyyy'}}</p></div>
+          </div>
+          <div class="col-6 col-sm user-data"><p>{{user.publDate | date: 'dd/MM/yyyy' }}</p></div>
           <div class="col-6 col-sm user-data"><p>name User</p></div>
           <div class="col-6 col-sm user-data"><p>{{user.reason}}</p></div>
           <div class="col-6 col-sm user-data"><p>proof</p></div>

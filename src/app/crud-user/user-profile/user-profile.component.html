@@ -1,50 +1,52 @@
 <div class="row">
-  <app-user-nav></app-user-nav>
+  <div class="col-12">
+    <app-user-nav></app-user-nav>
+  </div>
 </div>
 <hr>
-<div class="row">
+<div class="row" *ngIf="userData">
   <h2>{{userData.name }} {{userData.surname }} : Dayoff/Vacation</h2>
 </div>
-<!--<div class="row edit-user-form">-->
-<!--<form class="col-12" [formGroup]="userDayOff" (ngSubmit)="onSubmit(userDayOff.value)">-->
-<!--<div class="row">-->
-<!--<div class="col-6">-->
-<!--<div class="btn-group">-->
-<!--<label class="btn btn-primary" (click)="selectDayOff()"-->
-<!--[ngClass]="{'active': userDayOff.value.type === 'dayOff'}">-->
-<!--<input type="radio" formControlName="type" value="dayOff"> DayOff-->
-<!--</label>-->
-<!--<label class="btn btn-primary" (click)="selectVacation(userDayOff.value)"-->
-<!--[ngClass]="{'active': userDayOff.value.type === 'vacation'}">-->
-<!--<input type="radio" formControlName="type" value="vacation"> Vacation-->
-<!--</label>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="col-6 form-group">-->
-<!--<input type="text"-->
-<!--placeholder="Daterangepicker"-->
-<!--class="form-control"-->
-<!--bsDaterangepicker-->
-<!--formControlName="period">-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="row">-->
-<!--<div class="col-6 form-group" *ngIf="userDayOff.value.type === 'dayOff'">-->
-<!--<p>Reason:</p>-->
-<!--<input type="text" placeholder="Reason" class="form-control" formControlName="reason" [(ngModel)]="reason">-->
-<!--</div>-->
-<!--<div class="col-6 " *ngIf="userDayOff.value.type === 'dayOff'">-->
-<!--<p>Proof:</p>-->
-<!--<input type="file" placeholder="Proof" formControlName="proof">-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="row">-->
-<!--<div class="col-lg-12 btn-holder">-->
-<!--<button type="submit" class="btn btn-primary" [disabled]="userDayOff.invalid">Save</button>-->
-<!--</div>-->
-<!--</div>-->
-<!--</form>-->
-<!--</div>-->
+<div class="row edit-user-form" *ngIf="editTimeOff">
+  <form class="col-12" [formGroup]="userDayOff" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-6">
+        <div class="btn-group">
+          <label class="btn btn-primary" (click)="selectDayOff()"
+                 [ngClass]="{'active': userDayOff.value.type === 'dayOff'}">
+            <input type="radio" formControlName="type" value="dayOff"> DayOff
+          </label>
+          <label class="btn btn-primary" (click)="selectVacation(userDayOff.value)"
+                 [ngClass]="{'active': userDayOff.value.type === 'vacation'}">
+            <input type="radio" formControlName="type" value="vacation"> Vacation
+          </label>
+        </div>
+      </div>
+      <div class="col-6 form-group">
+        <input type="text"
+               class="form-control"
+               #drp="bsDaterangepicker"
+               bsDaterangepicker
+               formControlName="period">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 form-group" *ngIf="userDayOff.value.type === 'dayOff'">
+        <p>Reason:</p>
+        <input type="text" placeholder="Reason" class="form-control" formControlName="reason" [(ngModel)]="reason">
+      </div>
+      <div class="col-6 " *ngIf="userDayOff.value.type === 'dayOff'">
+        <p>Proof:</p>
+        <input type="file" placeholder="Proof" formControlName="proof">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 btn-holder">
+        <button type="submit" class="btn btn-primary"  [disabled]="userDayOff.invalid">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
 
 <hr>
 
@@ -53,8 +55,7 @@
     <div class="w-100  table-head">
       <div class="row">
         <div class="col-6 col-sm p-0"><p>Dayoff/Vacation</p></div>
-        <div class="col-12 col-sm"><p>From</p></div>
-        <div class="col-12 col-sm"><p>To</p></div>
+        <div class="col-12 col-sm"><p>From <br> To</p></div>
         <div class="col-6 col-sm"><p>Add date</p></div>
         <div class="col-6 col-sm"><p>Log</p></div>
         <div class="col-6 col-sm"><p>Reason</p></div>
@@ -71,9 +72,13 @@
         'rejected': user.status === 'rejected'
          }">
           <div class="col-6 col-sm user-data"><p>{{user.typeOff}}</p></div>
-          <div class="col-12 col-sm user-data"><p> {{user.period[0] | date: 'd/M/y'}} </p></div>
-          <div class="col-12 col-sm user-data"><p> {{user.period[1] | date:
-            'd/M/y'}}</p></div>
+          <div *ngIf="user.period[0] !== user.period[1]">
+            <div class="col-12 col-sm user-data"><p> {{user.period[0] | date: 'dd/MM/yyyy'}}</p></div>
+            <div class="col-12 col-sm user-data"><p> {{user.period[1] | date: 'dd/MM/yyyy'}}</p></div>
+          </div>
+          <div *ngIf="user.period[0] === user.period[1]">
+            <div class="col-12 col-sm user-data"><p> {{user.period[0] | date: 'dd/MM/yyyy'}}</p></div>
+          </div>
           <div class="col-6 col-sm user-data"><p>{{user.publDate | date: 'd/M/y' }}</p></div>
           <div class="col-6 col-sm user-data"><p>name User</p></div>
           <div class="col-6 col-sm user-data"><p>{{user.reason}}</p></div>
@@ -82,7 +87,7 @@
           <div class="col-6 col-sm user-data">
             <i class="fas fa-check" (click)="checkAgreed(user, i)" *ngIf="user.status !== 'agreed'"></i>
             <i class="fas fa-times" (click)="checkRejected(user,i)" *ngIf="user.status !== 'rejected'"></i>
-            <i class="fas fa-pen" (click)="editTimeOff(user, i)"></i>
+            <i class="fas fa-pen" (click)="editTimeOffItem(user, i)"></i>
             <i class="fas fa-trash-alt" (click)="removeUser(user, i)"></i></div>
         </div>
       </div>
