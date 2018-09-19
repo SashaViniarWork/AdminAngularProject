@@ -1,12 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import {NgModule} from '@angular/core';
+import {UsersFilterPipe} from "../core/pipes/users-filter.pipe";
+import {CommonModule} from "@angular/common";
+import {FinCompanyPipe} from "../core/pipes/fin-company.pipe";
+import {DateFilterPipe} from "../core/pipes/date-filter.pipe";
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
-  declarations: [HeaderComponent, FooterComponent]
+  exports: [
+    CommonModule,
+    FinCompanyPipe,
+    DateFilterPipe,
+    UsersFilterPipe,
+  ],
+  declarations: [FinCompanyPipe, DateFilterPipe, UsersFilterPipe]
 })
-export class SharedModule { }
+export class SharedModule {
+}

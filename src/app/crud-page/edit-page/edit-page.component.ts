@@ -9,7 +9,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 export class EditPageComponent implements OnInit {
   public addCount: FormGroup;
   ArrayInputs: any;
-  isValid: boolean = true;
+  isValid = true;
   changeValue(valid: boolean) {
     this.isValid = valid;
   }

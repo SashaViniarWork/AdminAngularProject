@@ -1,15 +1,13 @@
 import {NgModule, Optional, SkipSelf} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {ApiService} from './api.service';
-import { UsersFilterPipe } from './pipes/users-filter.pipe';
-import { FinCompanyPipe } from './pipes/fin-company.pipe';
-import { DateFilterPipe } from './pipes/date-filter.pipe';
+
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule,
   ],
-  declarations: [UsersFilterPipe, FinCompanyPipe, DateFilterPipe],
+  declarations: [],
   providers: [
     ApiService
   ]

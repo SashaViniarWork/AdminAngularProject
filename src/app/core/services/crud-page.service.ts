@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ApiService} from '../api.service';
-import {Observable} from 'rxjs/Observable';
+
 
 @Injectable()
 export class CrudPageService {

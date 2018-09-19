@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs/index';
+
 
 @Injectable()
 export class FinCompanyService {
@@ -9,7 +10,7 @@ export class FinCompanyService {
     getlist: 'http://localhost:3000/payments/getAllPayments',
     addnew: 'http://localhost:3000/payments/addpayment',
     disactive: 'http://localhost:3000/payments/update/:id'
-  }
+  };
 
   constructor(private http: HttpClient ) { }
 

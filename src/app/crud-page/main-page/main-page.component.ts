@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-main-page',
@@ -13,7 +13,7 @@ export class MainPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
 }

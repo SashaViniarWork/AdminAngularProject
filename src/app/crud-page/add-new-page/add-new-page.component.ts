@@ -13,7 +13,7 @@ export class AddNewPageComponent implements OnInit {
 public formControlNewPage: FormGroup;
   public addInCount: FormGroup;
   ArrayInputs: any;
-  isValid: boolean = true;
+  isValid = true;
   public arr = [];
   public req;
   public checkSub = true;

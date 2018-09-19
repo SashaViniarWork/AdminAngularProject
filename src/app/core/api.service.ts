@@ -1,8 +1,10 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+
 import 'rxjs/add/operator/map';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+
 import {environment} from '../../environments/environment';
+import {Injectable} from '@angular/core';
+
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
 @Injectable()
 export class ApiService {

@@ -1,12 +1,8 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AuthModule } from './auth/auth.module';
-import { CrudPageModule } from './crud-page/crud-page.module';
-import { CrudUserModule } from './crud-user/crud-user.module';
-import { FinOperatingModule } from './fin-operating/fin-operating.module';
-import { ErrorPageComponent } from './shared/error-page/error-page.component';
-import { AuthGuardService } from './core/services/auth-guard.service';
-import { AuthComponent } from './auth/auth.component';
+import {ErrorPageComponent} from './shared/error-page/error-page.component';
+import {AuthGuardService} from './core/services/auth-guard.service';
+import {AuthComponent} from './auth/auth.component';
+import {RouterModule, Routes} from '@angular/router';
+import {NgModule} from '@angular/core';
 
 
 const routes: Routes = [

@@ -9,17 +9,18 @@ import {AddUserComponent} from './add-user/add-user.component';
 import {CrudUserService} from '../core/services/crud-user.service';
 import {ApiService} from '../core/api.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {UsersFilterPipe} from '../core/pipes/users-filter.pipe';
 import {TimeOffListComponent} from './time-off-list/time-off-list.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {UserTimeOffComponent} from './user-time-off/user-time-off.component';
 import {UserNavComponent} from './user-nav/user-nav.component';
-import {BsDatepickerModule} from "ngx-bootstrap";
-import {CrudUserComponent} from "./add-user.component";
+import {BsDatepickerModule} from 'ngx-bootstrap';
+import {CrudUserComponent} from './add-user.component';
+import {SharedModule} from "../shared/shared.module";
+import {UsersFilterPipe} from "../core/pipes/users-filter.pipe";
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     CrudUserRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -31,11 +32,11 @@ import {CrudUserComponent} from "./add-user.component";
     UserMainPageComponent,
     UserEditPageComponent,
     AddUserComponent,
-    UsersFilterPipe,
     TimeOffListComponent,
     UserProfileComponent,
     UserTimeOffComponent,
-    UserNavComponent
+    UserNavComponent,
+    UsersFilterPipe
   ],
   providers: [
     CrudUserService,

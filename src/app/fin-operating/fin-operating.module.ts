@@ -1,19 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { FinOperatingComponent } from './fin-operating.component';
-import { FinOperatingRoutingModule } from './fin-operating-routing.module';
-import { EditComponent } from './edit/edit.component';
-import { UserFinOperatingComponent } from './user-fin-operating/user-fin-operating.component';
-import { CompanyFinOperatingComponent } from './company-fin-operating/company-fin-operating.component';
+import {FinOperatingComponent} from './fin-operating.component';
+import {FinOperatingRoutingModule} from './fin-operating-routing.module';
+import {EditComponent} from './edit/edit.component';
+import {UserFinOperatingComponent} from './user-fin-operating/user-fin-operating.component';
+import {CompanyFinOperatingComponent} from './company-fin-operating/company-fin-operating.component';
 import {FinCompanyService} from '../core/services/fin-company.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {FinCompanyPipe} from '../core/pipes/fin-company.pipe';
-import {BsDatepickerModule} from 'ngx-bootstrap';
-import {DateFilterPipe} from '../core/pipes/date-filter.pipe';
+import {BsDatepickerModule} from "ngx-bootstrap";
+import {SharedModule} from "../shared/shared.module";
+
+
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     FinOperatingRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -24,11 +25,10 @@ import {DateFilterPipe} from '../core/pipes/date-filter.pipe';
     EditComponent,
     UserFinOperatingComponent,
     CompanyFinOperatingComponent,
-    FinCompanyPipe,
-    DateFilterPipe
   ],
   providers: [
     FinCompanyService
   ]
 })
-export class FinOperatingModule { }
+export class FinOperatingModule {
+}

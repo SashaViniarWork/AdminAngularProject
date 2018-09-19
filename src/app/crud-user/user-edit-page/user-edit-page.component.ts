@@ -51,7 +51,7 @@ export class UserEditPageComponent implements OnInit {
       position: user.position,
       phone: user.phoneNumber,
       email: user.email,
-    }
+    };
     this.crudUserServices.updaterUser(req).subscribe(res => {
       this.router.navigate(['crud-user/']);
     });

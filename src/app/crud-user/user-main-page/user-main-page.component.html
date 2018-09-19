@@ -13,7 +13,7 @@
           <div class="col-6 col-sm"><p>Action</p></div>
         </div>
       </div>
-      <div class="col-lg-12 table-body" *ngFor="let user of userList | usersFilter:term">
+      <div class="col-lg-12 table-body" *ngFor="let user of userList | UsersFilter:term">
         <div class="row user-interpolation" *ngIf="user.isActive">
           <div class="col-6 col-sm user-data">
             <span class="cursor-pointer" (click)="goUserVacation(user)">{{user.name + " " + user.surname}}</span>

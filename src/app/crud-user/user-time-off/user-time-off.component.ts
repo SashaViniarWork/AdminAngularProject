@@ -1,8 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {CrudUserService} from "../../core/services/crud-user.service";
+
+import {CrudUserService} from '../../core/services/crud-user.service';
 import * as decode from 'jwt-decode';
-import {Subscription} from "rxjs/Subscription";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+
 
 // import {default as decode} from 'jwt-decode';
 @Component({
@@ -19,8 +20,7 @@ export class UserTimeOffComponent implements OnInit, OnDestroy {
   public tokenPayload = <any>{};
   public userDataDayOff;
   public reason: string;
-  public sub1: Subscription;
-  public sub2: Subscription;
+
 
   constructor(public crudUserService: CrudUserService) {
   }
@@ -35,7 +35,7 @@ export class UserTimeOffComponent implements OnInit, OnDestroy {
       proof: new FormControl(''),
     });
 
-    this.sub1 = this.crudUserService.getCurrentUser(this.userId).subscribe(data => {
+    this.crudUserService.getCurrentUser(this.userId).subscribe(data => {
       console.log(data);
       this.userData = data;
       this.userDataDayOff = data.dayOf;
@@ -52,8 +52,7 @@ export class UserTimeOffComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(user) {
-    debugger
-    this.sub2 = this.crudUserService.getCurrentUser(this.userId).subscribe(data => {
+    this.crudUserService.getCurrentUser(this.userId).subscribe(data => {
       this.userDataDayOff = data.dayOf;
       this.userDataDayOff.push(
         {
@@ -89,7 +88,6 @@ export class UserTimeOffComponent implements OnInit, OnDestroy {
   //   console.log(user);
   // }
   ngOnDestroy() {
-    // this.sub1.unsubscribe();
-    // this.sub2.unsubscribe();
+
   }
 }

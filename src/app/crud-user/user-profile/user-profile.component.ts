@@ -1,8 +1,7 @@
+import {CrudUserService} from '../../core/services/crud-user.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-
-import {CrudUserService} from "../../core/services/crud-user.service";
 
 @Component({
   selector: 'app-user-profile',
@@ -104,6 +103,7 @@ export class UserProfileComponent implements OnInit {
 
   updateStatus(data, index, status) {
     this.crudUserService.getCurrentUser(this.userId).subscribe(data => {
+      console.log(data);
       this.userDataDayOff[index].status = status;
       const newData = {id: this.userId, dayOf: this.userDataDayOff};
       this.crudUserService.updaterUserOff(newData).subscribe(res => {
