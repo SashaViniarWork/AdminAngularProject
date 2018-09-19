@@ -20,9 +20,10 @@ export class UserProfileComponent implements OnInit {
   public editData: number;
   public editIndex: number;
   public editId: string;
+  public editId: string;
   public reason: string;
   public editTimeOff = false;
-
+  public addTimeOff = false;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -64,7 +65,7 @@ export class UserProfileComponent implements OnInit {
     this.editId = this.userData._id;
     this.userDayOff = new FormGroup({
       type: new FormControl(data.typeOff),
-      period: new FormControl([new Date(data.period[0]), new Date(data.period[1]), Validators.required),
+      period: new FormControl([new Date(data.period[0]), new Date(data.period[1]), Validators.required]),
       reason: new FormControl(data.reason, Validators.required),
       proof: new FormControl(''),
     });
@@ -72,19 +73,15 @@ export class UserProfileComponent implements OnInit {
   }
 
 
-  onSubmit() {
-
+  saveTimeOff() {
     this.crudUserService.getCurrentUser(this.userId).subscribe(data => {
-
       this.userDataDayOff = data.dayOf;
       this.userDataDayOff[this.editIndex].typeOff = this.userDayOff.value.type;
       this.userDataDayOff[this.editIndex].publDate = this.today;
       this.userDataDayOff[this.editIndex].period = this.userDayOff.value.period;
       this.userDataDayOff[this.editIndex].reason = this.userDayOff.value.reason;
       this.userDataDayOff[this.editIndex].status = 'waiting';
-
       const newData = {id: this.userId, dayOf: this.userDataDayOff};
-
       this.crudUserService.updaterUserOff(newData).subscribe(res => {
         console.log(res);
         this.editTimeOff = false;
@@ -95,7 +92,15 @@ export class UserProfileComponent implements OnInit {
   }
 
   removeUser(data, index) {
-    console.log(data);
+
+    if (index !== -1) {
+      this.userDataDayOff.splice(index, 1);
+    }
+    console.log(this.userDataDayOff);
+    const newData = {id: this.userId, dayOf: this.userDataDayOff};
+    this.crudUserService.updaterUserOff(newData).subscribe(res => {
+      console.log(res);
+    });
   }
 
   updateStatus(data, index, status) {
@@ -107,5 +112,31 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  addTimeOffUSer(userId) {
+    this.editId = userId;
+    this.addTimeOff = true;
+    this.userDayOff = new FormGroup({
+      type: new FormControl('dayOff'),
+      period: new FormControl([null, Validators.required]),
+      reason: new FormControl(null, Validators.required),
+      proof: new FormControl(''),
+    });
+  }
 
+  addTimeOffUser() {
+    this.userDataDayOff.push(
+      {
+        id: this.editId,
+        log: 'Admin',
+        typeOff: this.userDayOff.value.type,
+        publDate: new Date(),
+        period: this.userDayOff.value.period,
+        reason: this.userDayOff.value.reason,
+        status: 'waiting'
+      });
+    const newData = {id: this.userId, dayOf: this.userDataDayOff};
+    this.crudUserService.updaterUserOff(newData).subscribe(res => {
+      console.log(res);
+    });
+  }
 }

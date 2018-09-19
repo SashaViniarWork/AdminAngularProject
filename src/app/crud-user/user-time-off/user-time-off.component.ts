@@ -12,6 +12,7 @@ import {Subscription} from "rxjs/Subscription";
 })
 export class UserTimeOffComponent implements OnInit, OnDestroy {
   public userDayOff: FormGroup;
+  public userData;
   public today;
   public userId;
   public token = localStorage.getItem('token');
@@ -36,6 +37,7 @@ export class UserTimeOffComponent implements OnInit, OnDestroy {
 
     this.sub1 = this.crudUserService.getCurrentUser(this.userId).subscribe(data => {
       console.log(data);
+      this.userData = data;
       this.userDataDayOff = data.dayOf;
 
     });
@@ -56,6 +58,7 @@ export class UserTimeOffComponent implements OnInit, OnDestroy {
       this.userDataDayOff.push(
         {
           id: this.userId,
+          log: this.userData.name,
           typeOff: user.type,
           publDate: new Date(),
           period: user.period,
@@ -81,6 +84,7 @@ export class UserTimeOffComponent implements OnInit, OnDestroy {
   editTimeOff() {
     console.log();
   }
+
   // removeUser() {
   //   console.log(user);
   // }

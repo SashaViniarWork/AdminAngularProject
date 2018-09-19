@@ -4,11 +4,12 @@
   </div>
 </div>
 <hr>
-<div class="row" *ngIf="userData">
+<div class="row justify-content-lg-between" *ngIf="userData ">
   <h2>{{userData.name }} {{userData.surname }} : Dayoff/Vacation</h2>
+  <button (click)="addTimeOffUSer(userId)" class="btn add-user">Add timeOff to {{userData.name }}</button>
 </div>
-<div class="row edit-user-form" *ngIf="editTimeOff">
-  <form class="col-12" [formGroup]="userDayOff" (ngSubmit)="onSubmit()">
+<div class="row edit-user-form" *ngIf="editTimeOff || addTimeOff">
+  <form class="col-12" [formGroup]="userDayOff" >
     <div class="row">
       <div class="col-6">
         <div class="btn-group">
@@ -42,7 +43,19 @@
     </div>
     <div class="row">
       <div class="col-lg-12 btn-holder">
-        <button type="submit" class="btn btn-primary"  [disabled]="userDayOff.invalid">Save</button>
+        <button type="submit"
+                class="btn btn-primary"
+                [disabled]="userDayOff.invalid"
+                *ngIf="addTimeOff"
+                (click)="addTimeOffUser()"
+        >Add {{userDayOff.value.type}}</button>
+
+        <button type="submit"
+                class="btn btn-primary"
+                [disabled]="userDayOff.invalid"
+                *ngIf="editTimeOff"
+                (click)="saveTimeOff()"
+        >Save</button>
       </div>
     </div>
   </form>
@@ -80,7 +93,7 @@
             <div class="col-12 col-sm user-data"><p> {{user.period[0] | date: 'dd/MM/yyyy'}}</p></div>
           </div>
           <div class="col-6 col-sm user-data"><p>{{user.publDate | date: 'd/M/y' }}</p></div>
-          <div class="col-6 col-sm user-data"><p>name User</p></div>
+          <div class="col-6 col-sm user-data"><p>{{user.log}}</p></div>
           <div class="col-6 col-sm user-data"><p>{{user.reason}}</p></div>
           <div class="col-6 col-sm user-data"><p>proof</p></div>
           <div class="col-6 col-sm user-data"><p>{{user.status}}</p></div>
