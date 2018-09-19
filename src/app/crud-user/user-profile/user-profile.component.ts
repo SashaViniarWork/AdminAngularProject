@@ -20,7 +20,6 @@ export class UserProfileComponent implements OnInit {
   public editData: number;
   public editIndex: number;
   public editId: string;
-  public editId: string;
   public reason: string;
   public editTimeOff = false;
   public addTimeOff = false;
