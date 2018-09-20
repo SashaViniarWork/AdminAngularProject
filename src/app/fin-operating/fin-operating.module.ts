@@ -11,6 +11,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FinCompanyPipe} from '../core/pipes/fin-company.pipe';
 import {BsDatepickerModule} from 'ngx-bootstrap';
 import {DateFilterPipe} from '../core/pipes/date-filter.pipe';
+import { FinNavigateComponent } from './fin-navigate/fin-navigate.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -25,7 +26,8 @@ import {DateFilterPipe} from '../core/pipes/date-filter.pipe';
     UserFinOperatingComponent,
     CompanyFinOperatingComponent,
     FinCompanyPipe,
-    DateFilterPipe
+    DateFilterPipe,
+    FinNavigateComponent
   ],
   providers: [
     FinCompanyService

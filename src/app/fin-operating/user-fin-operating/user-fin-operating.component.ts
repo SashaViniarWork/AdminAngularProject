@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CrudUserService} from '../../core/services/crud-user.service';
 
 @Component({
   selector: 'app-user-fin-operating',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserFinOperatingComponent implements OnInit {
 
-  constructor() { }
+  public usersInformatin;
+
+  constructor(public crudUserService: CrudUserService) { }
 
   ngOnInit() {
+    this.crudUserService.getUserList().subscribe( data => {
+      this.usersInformatin = data;
+      console.log(this.usersInformatin);
+    });
   }
 
 }
