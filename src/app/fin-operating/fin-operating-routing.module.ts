@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import {EditComponent} from './edit/edit.component';
 import {UserFinOperatingComponent} from './user-fin-operating/user-fin-operating.component';
 import {CompanyFinOperatingComponent} from './company-fin-operating/company-fin-operating.component';
+import {FinOperatingComponent} from "./fin-operating.component";
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'company-operations',
-    pathMatch: 'full'
+    component: FinOperatingComponent
   },
   {
     path: 'edit',

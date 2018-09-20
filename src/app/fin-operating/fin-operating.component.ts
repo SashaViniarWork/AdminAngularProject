@@ -12,4 +12,5 @@ export class FinOperatingComponent implements OnInit {
   ngOnInit() {
   }
 
+
 }
