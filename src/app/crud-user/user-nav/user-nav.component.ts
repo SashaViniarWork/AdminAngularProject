@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -8,6 +8,11 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class UserNavComponent implements OnInit {
   public showSearch: false;
+  @Output() onSearchType = new EventEmitter<boolean>();
+
+  search(serchValue) {
+    this.onSearchType.emit(serchValue);
+  }
 
   constructor(public router: Router, private activatedRoute: ActivatedRoute) {
   }

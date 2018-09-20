@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {CrudUserService} from '../../core/services/crud-user.service';
-import {UsersFilterPipe} from "../../core/pipes/users-filter.pipe";
-
 
 @Component({
   selector: 'app-user-main-page',
@@ -14,12 +12,17 @@ export class UserMainPageComponent implements OnInit {
   public userList;
   public term;
 
-  constructor(private crudUserServices: CrudUserService, public router: Router, public UsersFilterPipe: UsersFilterPipe) {
+  constructor(private crudUserServices: CrudUserService, public router: Router) {
   }
 
   ngOnInit() {
     this.userListOutput();
   }
+
+  onSearchType(serchValue: string) {
+    this.term = serchValue;
+  }
+
 
   onSelect(user) {
     this.router.navigate(['crud-user/user-edit/', user._id]);

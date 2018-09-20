@@ -1,4 +1,3 @@
-
 import {AppRoutingModule} from './app-routing.module';
 
 
@@ -17,11 +16,8 @@ import {CrudPageService} from './core/services/crud-page.service';
 import {FinCompanyService} from './core/services/fin-company.service';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {BsDatepickerModule} from 'ngx-bootstrap';
-import {SharedModule} from "./shared/shared.module";
-
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {SharedModule} from './shared/shared.module';
 
 
 
@@ -33,15 +29,10 @@ import {SharedModule} from "./shared/shared.module";
     FooterComponent,
   ],
   imports: [
-    SharedModule,
+    SharedModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    AuthModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    FormsModule,
-    BsDatepickerModule.forRoot(),
+    AuthModule
   ],
 
   providers: [

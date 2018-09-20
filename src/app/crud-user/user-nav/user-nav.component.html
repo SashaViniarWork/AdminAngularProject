@@ -1,7 +1,7 @@
 
 <div class="form page-head">
   <div class="form-group col-md-12 serch-add">
-    <input class="form-control serch" placeholder="Search" [(ngModel)]="term">
+    <input class="form-control serch" placeholder="Search" (keyup)="search($event.target.value)">
     <div>
       <button (click)="router.navigate(['crud-user/time-off-list'])" class="btn add-user">Time-off list</button>
       <button (click)="router.navigate(['crud-user/user-time-off'])" class="btn add-user">User-Add dayOff</button>

@@ -29,7 +29,6 @@ export class HeaderComponent implements OnInit {
   }
 
   menuValid() {
-    console.log(localStorage.getItem('token'));
     if (localStorage.getItem('token')) {
       this.menuValidation = true;
     } else {
