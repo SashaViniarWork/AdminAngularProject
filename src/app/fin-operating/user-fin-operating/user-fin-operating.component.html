@@ -9,5 +9,47 @@
         <input type="text" placeholder="Search by description or price" [(ngModel)]="term" class="form-control">
       </div>
     </div>
+    <div class="row">
+      <div class="col-12">
+        <table class="table mt-4">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First name</th>
+              <th scope="col">Surname</th>
+              <th scope="col">Position</th>
+              <th scope="col">Status</th>
+              <th scope="col">Salary</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of usersInformatin; let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{user.name}}</td>
+              <td>{{user.surname}}</td>
+              <td>{{user.position}}</td>
+              <td>{{user.isActive}}</td>
+              <td *ngIf="currentUser === user.surname">
+                <input type="text" [(ngModel)]="user.name">
+              </td>
+              <td *ngIf="currentUser !== user.surname">
+                {{user.name}}
+              </td>
+              <td *ngIf="currentUser !== user.surname">
+                <button type="button" class="btn btn-warning float-right" (click)="editUser(user)">
+                  <i class="fas fa-edit table__edit"></i>
+                </button>
+              </td>
+              <td *ngIf="currentUser === user.surname">
+                <button type="button" class="btn btn-success float-right" (click)="saveChanges(user)">
+                  <i class="fas fa-check table__edit"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

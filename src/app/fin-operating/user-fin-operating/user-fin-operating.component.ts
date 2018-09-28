@@ -7,9 +7,8 @@ import {CrudUserService} from '../../core/services/crud-user.service';
   styleUrls: ['./user-fin-operating.component.scss']
 })
 export class UserFinOperatingComponent implements OnInit {
-
+  public currentUser: string = '';
   public usersInformatin;
-
   constructor(public crudUserService: CrudUserService) { }
 
   ngOnInit() {
@@ -17,6 +16,16 @@ export class UserFinOperatingComponent implements OnInit {
       this.usersInformatin = data;
       console.log(this.usersInformatin);
     });
+  }
+  editUser(user) {
+    this.currentUser = user.surname;
+  }
+  saveChanges(user) {
+    const req = {
+      id: user._id,
+      name: user.name,
+    };
+    this.crudUserService.updaterUser(req).subscribe( res => this.currentUser = '');
   }
 
 }
