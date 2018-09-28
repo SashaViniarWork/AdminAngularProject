@@ -1,0 +1,95 @@
+<form [formGroup]="addForm" (ngSubmit)="add(addForm.value)">
+  <div class="container">
+    <div class="form-row row">
+      <div class="col-12">
+        <h2>Add New Employee</h2>
+      </div>
+      <div class="col-12">
+        <div class="form-row">
+          <div class="form-group col-md-3 px-2">
+            <label class="w-100">
+              Name:
+              <input type="text" class="form-control" formControlName="name" placeholder="Name" required>
+            </label>
+            <div *ngIf="addForm.controls['name'].errors  && !addForm.controls['name'].pristine">
+              <div *ngIf="!addForm.controls['name'].errors.required">Please add Full Name</div>
+            </div>
+          </div>
+          <div class="form-group col-md-3 px-2">
+            <label class="w-100">
+              Surname
+              <input type="text" class="form-control" formControlName="surname" placeholder="Full Name" required>
+            </label>
+            <div *ngIf="addForm.controls['surname'].errors  && !addForm.controls['surname'].pristine">
+              <div *ngIf="!addForm.controls['surname'].errors.required">Please add Full Name</div>
+            </div>
+          </div>
+          <div class="form-group col-md-3 px-2">
+            <label class="w-100">
+              E-mail
+              <input type="email" class="form-control" formControlName="email" placeholder="E-mail" required>
+            </label>
+            <div *ngIf="addForm.controls['email'].errors  && !addForm.controls['email'].pristine">
+              <div *ngIf="!addForm.controls['email'].errors.required">E-mail must look like example@gmail.com</div>
+            </div>
+          </div>
+          <div class="form-group col-md-3 px-2">
+            <label class="w-100">
+              Phone number
+              <input type="text" class="form-control" formControlName="phoneNumber" placeholder="Phone number"
+                     pattern="^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$" required>
+            </label>
+            <div *ngIf="addForm.controls['phoneNumber'].errors  && !addForm.controls['phoneNumber'].pristine">
+              <div *ngIf="!addForm.controls['phoneNumber'].errors.required">Please add phone number</div>
+              <div *ngIf="!addForm.controls['phoneNumber'].errors.pattern">Please add correct phone number</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3 px-2">
+            <label class="w-100">
+              Birthday
+              <input type="text" class="form-control" formControlName="birthday" placeholder="Birthday" required>
+            </label>
+            <div *ngIf="addForm.controls['birthday'].errors  && !addForm.controls['birthday'].pristine">
+              <div *ngIf="!addForm.controls['birthday'].errors.required">Please add birthday</div>
+            </div>
+          </div>
+          <div class="form-group col-md-3 px-2">
+            <label class="w-100">
+              Position
+              <select class="form-control" formControlName="position" required>
+                <option [ngValue]="position" *ngFor="let position of positions">{{position.name}}</option>
+              </select>
+            </label>
+            <div *ngIf="addForm.controls['position'].errors  && !addForm.controls['position'].pristine">
+              <div *ngIf="!addForm.controls['position'].errors.required">Please add position</div>
+            </div>
+          </div>
+          <div class="form-group col-md-3 px-2">
+            <label class="w-100">
+              Projects
+              <select class="form-control" formControlName="projects" required>
+                <option [ngValue]="project" *ngFor="let project of projects">{{project.name}}</option>
+              </select>
+            </label>
+            <div *ngIf="addForm.controls['projects'].errors  && !addForm.controls['projects'].pristine">
+              <div *ngIf="!addForm.controls['projects'].errors.required">Please add projects</div>
+            </div>
+          </div>
+          <div class="form-group col-md-3 px-2">
+            <label class="w-100">
+              Salary
+              <input type="text" class="form-control" formControlName="salary" placeholder="Salary" required>
+            </label>
+            <div *ngIf="addForm.controls['salary'].errors  && !addForm.controls['salary'].pristine">
+              <div *ngIf="!addForm.controls['salary'].errors.required">Please add salary</div>
+            </div>
+          </div>
+        </div>
+        <button [disabled]="addForm.invalid" type="submit" class="btn btn-warning">Save</button>
+      </div>
+    </div>
+  </div>
+</form>
+

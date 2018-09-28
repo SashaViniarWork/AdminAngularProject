@@ -27,6 +27,10 @@ export class HeaderComponent implements OnInit {
       this.closeStyle = '';
     }
   }
+  closeMenu() {
+    this.show = !this.show;
+    this.closeStyle = '';
+  }
 
   menuValid() {
     console.log(localStorage.getItem('token'));

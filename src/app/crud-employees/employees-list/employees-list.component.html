@@ -1,0 +1,37 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="search__heading">Search</h1>
+      <div class="form-group position-relative">
+        <i class="fas fa-search search__icon"></i>
+        <input id="search-menu" placeholder="Enter what you want to find" class="search__input">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table mt-4">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First name</th>
+          <th scope="col">Surname</th>
+          <th scope="col">Position</th>
+          <th scope="col">Status</th>
+          <th scope="col">Salary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of usersInformatin; let i = index">
+          <td>{{i + 1}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.surname}}</td>
+          <td>{{user.position}}</td>
+          <td>{{user.isActive}}</td>
+          <td>{{1000 | currency}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
