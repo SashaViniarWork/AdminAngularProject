@@ -33,6 +33,11 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
+    path: 'crud-employees',
+    loadChildren: 'app/crud-employees/crud-employees.module#CrudEmployeesModule',
+    // canActivate: [AuthGuardService]
+  },
+  {
     path: 'fin-operation',
     loadChildren: 'app/fin-operating/fin-operating.module#FinOperatingModule',
     // canActivate: [AuthGuardService]
