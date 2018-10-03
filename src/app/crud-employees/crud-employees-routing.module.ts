@@ -6,7 +6,7 @@ import {CrudEmployeesComponent} from './crud-employees.component';
 const routes: Routes = [
   {path: '', component: CrudEmployeesComponent},
   {path: 'add', component: EmployeesAddComponent},
-  { path: '**', redirectTo: '' }
+  {path: '**', redirectTo: '' }
 ];
 
 @NgModule({
