@@ -8,7 +8,6 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { AuthGuardService } from './core/services/auth-guard.service';
 import { AuthComponent } from './auth/auth.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -30,6 +29,11 @@ const routes: Routes = [
     path: 'crud-user',
     loadChildren: 'app/crud-user/crud-user.module#CrudUserModule',
     canActivate: [AuthGuardService]
+  },
+  {
+    path: 'crud-employees',
+    loadChildren: 'app/crud-employees/crud-employees.module#CrudEmployeesModule',
+    // canActivate: [AuthGuardService]
   },
   {
     path: 'fin-operation',
