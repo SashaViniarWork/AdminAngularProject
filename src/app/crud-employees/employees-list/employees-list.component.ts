@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CrudUserService} from '../../../../../AdminAngularProject-master/src/app/core/services/crud-user.service';
+import {CrudUserService} from '../../core/services/crud-user.service';
 
 @Component({
   selector: 'app-employees-list',

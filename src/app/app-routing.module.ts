@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthModule } from './auth/auth.module';
-import { CrudPageModule } from './crud-page/crud-page.module';
-import { CrudUserModule } from './crud-user/crud-user.module';
-import { FinOperatingModule } from './fin-operating/fin-operating.module';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { AuthGuardService } from './core/services/auth-guard.service';
 import { AuthComponent } from './auth/auth.component';
-
 
 const routes: Routes = [
   {
@@ -24,6 +20,11 @@ const routes: Routes = [
   {
     path: 'crud-page',
     loadChildren: 'app/crud-page/crud-page.module#CrudPageModule',
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'crud-employees',
+    loadChildren: 'app/crud-employees/crud-employees.module#CrudEmployeesModule',
     canActivate: [AuthGuardService]
   },
   {

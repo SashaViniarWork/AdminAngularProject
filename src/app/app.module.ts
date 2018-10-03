@@ -18,8 +18,6 @@ import {CrudPageService} from './core/services/crud-page.service';
 import {FinCompanyService} from './core/services/fin-company.service';
 import {BsDatepickerModule} from 'ngx-bootstrap';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
